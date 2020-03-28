@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MindYourWay</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="search_hint">Enter Address, City or Zip Code</string>
+    <string name="coordinates">Enter coordinates</string>
+</resources>
+

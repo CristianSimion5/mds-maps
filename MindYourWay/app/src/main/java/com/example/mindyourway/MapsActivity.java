@@ -15,6 +15,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -39,6 +40,7 @@ import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -52,11 +54,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean mLocationPermissionGranted = false;
 
     //vars
-    private static final int locationPermissionRequestCode = 1234;
     private static final float DEFAULT_ZOOM = 15f;
-    private String[] destinationString;
+    public static final int locationPermissionRequestCode = 1234;
+    private String destinationString;
     private Location checkPoint;
     private Location currentLocation;
+    private List<Pair<Double, Double>> checkpointList = Arrays.asList(new Pair<Double, Double>(44.435597, 26.099499));
 
     //widgets
     private EditText mSearchText;
@@ -89,8 +92,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         Intent intent = getIntent();
-        destinationString = intent.getStringExtra(MainActivity.EXTRA_TEXT).split(" ");
-        checkPoint = getCheckPoint(destinationString);
+        destinationString = intent.getStringExtra(MainActivity.EXTRA_TEXT);
+        checkPoint = getCheckPoint(Integer.valueOf(destinationString));
 
         mSearchText = (EditText) findViewById(R.id.input_search);
         mGPS = (ImageView) findViewById(R.id.ic_gps);
@@ -100,7 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         getLocationPermission();
     }
 
-    private Location getCheckPoint(String[] destinationString){
+    /*private Location getCheckPoint(String[] destinationString){
         double destinationLatitude;
         double destinationLongitude;
         Location destination = new Location("");
@@ -110,7 +113,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         destination.setLatitude(destinationLatitude);
         destination.setLongitude(destinationLongitude);
         return destination;
+    }*/
+    private Location getCheckPoint(int x){
+        Location destination = new Location("");
+        double destinationLatitude = checkpointList.get(x).first;
+        double destinationLongitude = checkpointList.get(x).second;
+        Log.d(TAG, "onCreate: Coordinates are: lat: " + destinationLatitude + " lng: " + destinationLongitude);
+        destination.setLatitude(destinationLatitude);
+        destination.setLongitude(destinationLongitude);
+        return destination;
     }
+
 
     private void initMap(){
         Log.d(TAG, "initMap: Initializing map");
@@ -278,7 +291,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void moveCamera(LatLng latLng, float zoom, String title){
         Log.d(TAG, "moveCamera: Moving the camera to: lat: " + latLng.latitude + ", lng: " + latLng.longitude);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,zoom));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,zoom));
 
         if(!title.equals("My location")) {
             MarkerOptions options = new MarkerOptions()

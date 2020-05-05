@@ -1,9 +1,12 @@
 package com.example.mindyourway;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.Location;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.Layout;
@@ -14,8 +17,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import org.w3c.dom.Text;
 
@@ -33,7 +42,8 @@ public class BucharestMapActivity extends AppCompatActivity {
     private LatLng cornerRightUp = new LatLng(44.501426, 26.239759);
     private LatLng cornerRightDown = new LatLng(44.360718, 26.239759);
     private LatLng cornerLeftDown = new LatLng(44.360718, 25.947406);
-    private LatLng myLocation = new LatLng(44.435597, 26.099499);
+    private LatLng myLocation= new LatLng(44.435597, 26.099499);
+    private Location currentLocation;
 
     //widgets
     private Button buttonGoToRegion;
@@ -45,6 +55,8 @@ public class BucharestMapActivity extends AppCompatActivity {
     private Button buttonMyLocation;
     private View bucharestMap;
     private ImageView myLocationIcon;
+    private TextView textName;
+    private TextView textLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +93,14 @@ public class BucharestMapActivity extends AppCompatActivity {
         myLocationIcon.setVisibility(View.VISIBLE);
     }
 
+    private boolean checkIfInCity(LatLng myLocation){
+        if (myLocation.latitude > cornerLeftUp.latitude) return false;
+        if (myLocation.latitude < cornerRightDown.latitude) return false;
+        if (myLocation.longitude < cornerLeftUp.longitude) return false;
+        if (myLocation.longitude > cornerRightDown.longitude) return false;
+        return true;
+    }
+
     private void init(){
         generateLevels();
         myLocationIcon = (ImageView) findViewById(R.id.locationIcon);
@@ -91,17 +111,23 @@ public class BucharestMapActivity extends AppCompatActivity {
         textStatus = (TextView) findViewById(R.id.textStatus);
         buttonGoToRegion = (Button) findViewById(R.id.buttonGoToRegion);
         buttonMyLocation = (Button) findViewById(R.id.buttonMyLocation);
+        textName = (TextView) findViewById(R.id.textName);
+        textLevel = (TextView) findViewById(R.id.textLevel);
+
+        textName.setText(MainActivity.user.getName());
+        textLevel.setText(String.valueOf(MainActivity.user.getLevel()));
         buttonMyLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: asd");
-                pointMyLocationOnMap(myLocation);
+                getDeviceLocation();
+                //myLocation = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+                //Log.d(TAG, "onClick: "+myLocation.latitude+myLocation.longitude);
 
             }
         });
 
         buttonList = bucharestMap.getTouchables();
-        instantiateRegionDescription("Center");
+        initRegionDescription("Center");
         for (View view : buttonList) {
             final Button button = (Button) view;
             Log.d(TAG, "init: "+button.getTag().toString());
@@ -110,13 +136,13 @@ public class BucharestMapActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String regionName = button.getTag().toString();
-                    instantiateRegionDescription(regionName);
+                    initRegionDescription(regionName);
                 }
             });
         }
     }
 
-    private void instantiateRegionDescription(final String regionName){
+    private void initRegionDescription(final String regionName){
         Log.d(TAG, "instantiateRegionDescription: "+regionName);
         int levelStart = levelRangerForRegions.get(regionName).first;
         int levelEnd = levelRangerForRegions.get(regionName).second;
@@ -143,5 +169,25 @@ public class BucharestMapActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void getDeviceLocation(){
+        Log.d(TAG, "getDeviceLocation: getting the devices current location");
+        FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(this);
+
+        client.getLastLocation().addOnSuccessListener(BucharestMapActivity.this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location!=null){
+                    Log.d(TAG, "onSuccess: "+location.getLatitude()+ " "+ location.getLongitude());
+                    //myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                    if(checkIfInCity(myLocation)) {
+                        pointMyLocationOnMap(myLocation);
+                    } else {
+                        Toast.makeText(BucharestMapActivity.this, "Your are not in Bucharest", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
     }
 }

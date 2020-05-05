@@ -7,21 +7,26 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/coordinates"
-        android:id="@+id/txtCoord"
-        android:textSize="15sp"
         android:textColor="@color/black"
-        />
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
+        android:id="@+id/btnMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/txtCoord"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="16dp"
         android:text="Map"
-        android:id="@+id/btnMap"/>
-
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

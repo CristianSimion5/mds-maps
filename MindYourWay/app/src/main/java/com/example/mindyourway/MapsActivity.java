@@ -41,6 +41,7 @@ import com.google.android.gms.tasks.Task;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -51,15 +52,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private LocationManager locationManager;
-    private boolean mLocationPermissionGranted = false;
 
     //vars
     private static final float DEFAULT_ZOOM = 15f;
-    public static final int locationPermissionRequestCode = 1234;
     private String destinationString;
     private Location checkPoint;
     private Location currentLocation;
-    private List<Pair<Double, Double>> checkpointList = Arrays.asList(new Pair<Double, Double>(44.435597, 26.099499));
+    private HashMap<String, Pair<Double, Double>> checkpointList;
 
     //widgets
     private EditText mSearchText;
@@ -72,49 +71,46 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         Toast.makeText(this, "Map is Ready", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onMapReady: Map is ready");
-        // Add a marker in Sydney and move the camera
-        if(mLocationPermissionGranted){
-            getDeviceLocation(true);
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
-            mMap.setMyLocationEnabled(true);
-            mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-            init();
+        getDeviceLocation(true);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
+        mMap.setMyLocationEnabled(true);
+        mMap.getUiSettings().setMyLocationButtonEnabled(false);
+
+        init();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        initCoordinates();
+
         Intent intent = getIntent();
-        destinationString = intent.getStringExtra(MainActivity.EXTRA_TEXT);
-        checkPoint = getCheckPoint(Integer.valueOf(destinationString));
+        Log.d(TAG, "onCreate: hey");
+        destinationString = intent.getStringExtra(CenterMapActivity.centerExtra);
+        checkPoint = getCheckPoint(destinationString);
 
         mSearchText = (EditText) findViewById(R.id.input_search);
         mGPS = (ImageView) findViewById(R.id.ic_gps);
         mDest = (ImageView) findViewById(R.id.ic_dest);
         mReached = (ImageView) findViewById(R.id.ic_reached);
 
-        getLocationPermission();
+        initMap();
+
     }
 
-    /*private Location getCheckPoint(String[] destinationString){
-        double destinationLatitude;
-        double destinationLongitude;
-        Location destination = new Location("");
-        destinationLatitude = Double.parseDouble(destinationString[0]);
-        destinationLongitude = Double.parseDouble(destinationString[1]);
-        Log.d(TAG, "onCreate: Coordinates are: lat: " + destinationLatitude + " lng: " + destinationLongitude);
-        destination.setLatitude(destinationLatitude);
-        destination.setLongitude(destinationLongitude);
-        return destination;
-    }*/
-    private Location getCheckPoint(int x){
+    private void initCoordinates(){
+        checkpointList = new HashMap<>();
+        checkpointList.put("Center_1", new Pair<Double, Double>(44.435597, 26.099499));
+        checkpointList.put("Center_2", new Pair<Double, Double>(44.421419, 26.076623));
+        checkpointList.put("Center_3", new Pair<Double, Double>(44.443625, 26.125010));
+    }
+
+    private Location getCheckPoint(String x){
         Location destination = new Location("");
         double destinationLatitude = checkpointList.get(x).first;
         double destinationLongitude = checkpointList.get(x).second;
@@ -133,6 +129,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void init(){
+        getDestinationLocation();
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -170,6 +167,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Log.d(TAG, "onClick: Clicked reached icon");
                 if(checkIfReachedDestination()){
                     Toast.makeText(MapsActivity.this, "Reached Location", Toast.LENGTH_SHORT).show();
+                    MainActivity.user.incrementStatus(destinationString);
+                    if(destinationString.contains("Center")){
+                        Intent intent = new Intent(MapsActivity.this, CenterMapActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -199,27 +201,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         try{
-            if(mLocationPermissionGranted){
 
-                final Task location = mFusedLocationProviderClient.getLastLocation();
-                location.addOnCompleteListener(new OnCompleteListener() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-                        if(task.isSuccessful()){
-                            Log.d(TAG, "onComplete: found location!");
-                            currentLocation = (Location) task.getResult();
-                            if(withCamera){
-                                moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
-                                        DEFAULT_ZOOM,
-                                        "My location");
-                            }
-                        }else{
-                            Log.d(TAG, "onComplete: current location is null");
-                            Toast.makeText(MapsActivity.this, "unable to get current location", Toast.LENGTH_SHORT).show();
+            final Task location = mFusedLocationProviderClient.getLastLocation();
+            location.addOnCompleteListener(new OnCompleteListener() {
+                @Override
+                public void onComplete(@NonNull Task task) {
+                    if(task.isSuccessful()){
+                        Log.d(TAG, "onComplete: found location!");
+                        currentLocation = (Location) task.getResult();
+                        if(withCamera){
+                            moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
+                                    DEFAULT_ZOOM,
+                                    "My location");
                         }
+                    }else{
+                        Log.d(TAG, "onComplete: current location is null");
+                        Toast.makeText(MapsActivity.this, "unable to get current location", Toast.LENGTH_SHORT).show();
                     }
-                });
-            }
+                }
+            });
         }catch (SecurityException e){
             Log.e(TAG, "getDeviceLocation: SecurityException: " + e.getMessage() );
         }
@@ -249,45 +249,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void getLocationPermission(){
-        Log.d(TAG, "getLocationPermission: Getting location permissions");
-        String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION};
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                mLocationPermissionGranted = true;
-                initMap();
-            } else {
-                ActivityCompat.requestPermissions(this,permissions,locationPermissionRequestCode);
-            }
-        } else {
-            ActivityCompat.requestPermissions(this,permissions,locationPermissionRequestCode);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        mLocationPermissionGranted = false;
-
-        switch (requestCode) {
-            case locationPermissionRequestCode: {
-                if(grantResults.length > 0){
-                    for (int i = 0; i < grantResults.length; i++){
-                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
-                            mLocationPermissionGranted = false;
-                            Log.d(TAG, "onRequestPermissionsResult: Permission failed");
-                            return;
-                        }
-                    }
-                    Log.d(TAG, "onRequestPermissionsResult: Permission granted");
-                    mLocationPermissionGranted = true;
-                    initMap();
-                }
-            }
-        }
-    }
 
     private void moveCamera(LatLng latLng, float zoom, String title){
         Log.d(TAG, "moveCamera: Moving the camera to: lat: " + latLng.latitude + ", lng: " + latLng.longitude);

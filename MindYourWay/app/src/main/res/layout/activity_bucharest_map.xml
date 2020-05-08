@@ -11,8 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,13 +23,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/textView8"
+            <Button
+                android:id="@+id/buttonMyLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="152dp"
-                android:text="Bucharest"
-                android:textSize="20dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="72dp"
+                android:text="Show my location"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,14 +77,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/buttonMyLocation"
+            <TextView
+                android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="96dp"
-                android:layout_marginTop="72dp"
-                android:text="Show my location"
-                android:textSize="15dp"
+                android:layout_marginStart="152dp"
+                android:text="Bucharest"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -101,9 +103,9 @@
 
             <Button
                 android:id="@+id/buttonCenter"
-                android:tag="Center"
                 android:layout_width="95dp"
                 android:layout_height="98dp"
+                android:tag="Center"
                 android:text=""
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -115,9 +117,9 @@
 
             <Button
                 android:id="@+id/buttonSector1a"
-                android:tag="Sector1"
                 android:layout_width="163dp"
                 android:layout_height="57dp"
+                android:tag="Sector1"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -129,9 +131,9 @@
 
             <Button
                 android:id="@+id/buttonSector1b"
-                android:tag="Sector1"
                 android:layout_width="86dp"
                 android:layout_height="86dp"
+                android:tag="Sector1"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -143,9 +145,9 @@
 
             <Button
                 android:id="@+id/buttonSector3"
-                android:tag="Sector3"
                 android:layout_width="139dp"
                 android:layout_height="123dp"
+                android:tag="Sector3"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -159,17 +161,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/bg1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:background="@color/bg1">
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/textView"
+            <Button
+                android:id="@+id/buttonGoToRegion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:text="Region:"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="112dp"
+                android:text="Go to this region"
                 android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -240,13 +242,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/buttonGoToRegion"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="112dp"
-                android:text="Go to this region"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:text="Region:"
                 android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

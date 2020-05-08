@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SudokuActivity"></activity>
+        <activity android:name=".SudokuActivity">
+        </activity>
         <activity android:name=".Sector3MapActivity" />
         <activity android:name=".Sector1MapActivity" />
         <activity android:name=".CenterMapActivity" />
@@ -39,6 +40,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />

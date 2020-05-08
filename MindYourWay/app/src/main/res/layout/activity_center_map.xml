@@ -10,46 +10,92 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:background="@color/bg1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="125dp"
-            android:background="@color/bg1"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="152dp"
-                android:text="Center"
-                android:textSize="20dp"
+            <androidx.cardview.widget.CardView
+                android:layout_width="251dp"
+                android:layout_height="29dp"
+                app:cardCornerRadius="100dp">
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/text_round"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/croissant_one"
+                        android:text="Center"
+                        android:textSize="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="275dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="92dp"
+                android:max="3"
+                android:progress="1"
+                android:progressDrawable="@drawable/pb_drawable"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:text="My name"
-                android:textSize="20dp"
+            <LinearLayout
+                android:layout_width="202dp"
+                android:layout_height="35dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/text_bg2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="96dp"
-                android:layout_marginTop="36dp"
-                android:text="Marian"
-                android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My name:"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marian"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView11"
@@ -73,19 +119,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ProgressBar
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="275dp"
-                android:id="@+id/progressBar"
-                android:layout_height="24dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="92dp"
-                android:progressDrawable="@drawable/pb_drawable"
-                android:progress="1"
-                android:max="3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,67 +136,84 @@
 
             <Button
                 android:id="@+id/buttonCheckpoint1"
-                android:tag="Center_1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="194dp"
+                android:layout_marginStart="180dp"
                 android:layout_marginTop="132dp"
+                android:layout_marginEnd="169dp"
+                android:layout_marginBottom="178dp"
                 android:background="@drawable/btncirclex"
+                android:tag="Center_1"
                 android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
             <Button
                 android:id="@+id/buttonCheckpoint2"
-                android:tag="Center_2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="86dp"
                 android:layout_marginTop="238dp"
+                android:layout_marginEnd="295dp"
+                android:layout_marginBottom="72dp"
                 android:background="@drawable/btncirclex"
+                android:tag="Center_2"
                 android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.52" />
 
             <Button
                 android:id="@+id/buttonCheckpoint3"
-                android:tag="Center_3"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="307dp"
                 android:layout_marginTop="65dp"
+                android:layout_marginEnd="74dp"
+                android:layout_marginBottom="245dp"
                 android:background="@drawable/btncirclex"
+                android:tag="Center_3"
                 android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:background="@color/bg1">
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/textView2"
+            <Button
+                android:id="@+id/buttonReachLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Checkpoint:"
-                android:textSize="20dp"
+                android:layout_marginStart="228dp"
+                android:text="Go to location"
+                android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textCheckpointNumber"
+            <Button
+                android:id="@+id/buttonPlayGame"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="112dp"
-                android:layout_marginTop="4dp"
-                android:text="1"
-                android:textSize="20dp"
+                android:layout_marginStart="232dp"
+                android:layout_marginTop="48dp"
+                android:text="Play the game"
+                android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -189,13 +239,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/buttonReachLocation"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="228dp"
-                android:text="Go to location"
-                android:textSize="12dp"
+                android:layout_marginTop="4dp"
+                android:text="Checkpoint:"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -210,14 +260,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/buttonPlayGame"
+            <TextView
+                android:id="@+id/textCheckpointNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="232dp"
-                android:layout_marginTop="48dp"
-                android:text="Play the game"
-                android:textSize="12dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="105dp"
+                android:layout_marginBottom="89dp"
+                android:text="1"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/textChackpointGame"
+                app:layout_constraintEnd_toStartOf="@+id/buttonReachLocation"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

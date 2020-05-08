@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class CenterMapActivity extends AppCompatActivity {
     public static final String centerExtra = "com.example.MindYourWay.Center.EXTRA_TEXT";
     private static final String TAG = "CenterMapActivity";
     //widgets
+    private LinearLayout linearLayoutTitle;
     private Button buttonCheckpoint1;
     private Button buttonCheckpoint2;
     private Button buttonCheckpoint3;
@@ -51,6 +53,7 @@ public class CenterMapActivity extends AppCompatActivity {
         buttonCheckpoint1 = (Button) findViewById(R.id.buttonCheckpoint1);
         buttonCheckpoint2 = (Button) findViewById(R.id.buttonCheckpoint2);
         buttonCheckpoint3 = (Button) findViewById(R.id.buttonCheckpoint3);
+        linearLayoutTitle = (LinearLayout) findViewById(R.id.linearLayoutTitle);
         buttonCheckpointList.add(buttonCheckpoint1);
         buttonCheckpointList.add(buttonCheckpoint2);
         buttonCheckpointList.add(buttonCheckpoint3);

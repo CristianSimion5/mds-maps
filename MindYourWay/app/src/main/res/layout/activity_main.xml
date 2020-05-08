@@ -4,29 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_launcher_background"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/textName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+    <Button
+        android:id="@+id/btnMap2"
+        android:layout_width="191dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/coordinates"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#6379F3"
+        android:backgroundTint="#6379F3"
+        android:drawableStart="@android:drawable/ic_menu_sort_alphabetically"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/guide"
+        app:layout_constraintStart_toStartOf="@+id/btnMap"
+        app:layout_constraintTop_toBottomOf="@+id/btnMap" />
 
     <Button
         android:id="@+id/btnMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
+        android:layout_width="191dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:background="#6379F3"
+        android:backgroundTint="#6379F3"
+        android:drawableStart="@android:drawable/ic_media_play"
+        android:fontFamily="sans-serif-medium"
+        android:isScrollContainer="false"
+        android:text="@string/start_journey"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/btnMap3"
+        android:layout_width="191dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:text="Map"
+        android:background="#6379F3"
+        android:backgroundTint="#6379F3"
+        android:drawableStart="@android:drawable/btn_star_big_on"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/credits"
+        app:layout_constraintStart_toStartOf="@+id/btnMap2"
+        app:layout_constraintTop_toBottomOf="@+id/btnMap2" />
+
+    <EditText
+        android:id="@+id/textName"
+        android:layout_width="115dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:autoText="false"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:hint="@string/enter_nickname"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnMap"
+        app:layout_constraintStart_toEndOf="@+id/btnMap" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="315dp"
+        android:layout_height="216dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title"
+        tools:srcCompat="@tools:sample/avatars[2]" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

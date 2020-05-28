@@ -20,18 +20,23 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -44,7 +49,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
     private static final String TAG = "MapsActivity";
 
@@ -55,6 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     //vars
     private static final float DEFAULT_ZOOM = 15f;
+    private static final LatLngBounds latlngBounds = new LatLngBounds(new LatLng(-40,-168), new LatLng(71,136));
     private String destinationString;
     private Location checkPoint;
     private Location currentLocation;
@@ -71,7 +77,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         Toast.makeText(this, "Map is Ready", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onMapReady: Map is ready");
-        getDeviceLocation(true);
+        getDeviceLocation(false);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -79,6 +85,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng point) {
+                mMap.clear();
+                Log.d(TAG, "onMapClick: "+point.toString());
+                mMap.addMarker(new MarkerOptions().position(point));
+            }
+        });
 
         init();
     }
@@ -130,6 +144,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void init(){
         getDestinationLocation();
+
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -167,7 +182,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Log.d(TAG, "onClick: Clicked reached icon");
                 if(checkIfReachedDestination()){
                     Toast.makeText(MapsActivity.this, "Reached Location", Toast.LENGTH_SHORT).show();
-                    MainActivity.user.incrementStatus(destinationString);
+                    if(MainActivity.user.getStatus(destinationString)==2)
+                        MainActivity.user.incrementStatus(destinationString);
                     if(destinationString.contains("Center")){
                         Intent intent = new Intent(MapsActivity.this, CenterMapActivity.class);
                         startActivity(intent);

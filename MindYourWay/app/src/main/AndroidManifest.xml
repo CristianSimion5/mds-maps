@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SudokuActivity"></activity>
+        <activity android:name=".SudokuActivity">
+        </activity>
         <activity android:name=".Sector3MapActivity" />
         <activity android:name=".Sector1MapActivity" />
         <activity android:name=".CenterMapActivity" />

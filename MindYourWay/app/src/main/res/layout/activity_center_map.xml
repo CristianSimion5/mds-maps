@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3DDC84"
+    android:background="@drawable/checkpoint_background"
     tools:context=".CenterMapActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +16,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="1">
+
+        <Button
+            android:id="@+id/BackButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:background="@drawable/backbtn_ripple"
+            android:textSize="15dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+            app:layout_constraintDimensionRatio=""
+            app:layout_constraintEnd_toStartOf="@+id/textView8"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -34,6 +47,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/textbackground"
             android:text="Center"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/textbackground"
             android:text="My name"
             android:textSize="20dp"
             app:layout_constraintEnd_toStartOf="@+id/textView8"
@@ -56,6 +71,7 @@
             android:id="@+id/textName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/textbackground"
             android:text="Marian"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -69,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/textbackground"
             android:text="My level"
             android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -78,6 +95,7 @@
             android:id="@+id/textLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/textbackground"
             android:text="23"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -105,6 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="52dp"
+            android:background="@drawable/textbackground"
             android:text="Checkpoint:"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonReachLocation"
@@ -115,6 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:background="@drawable/textbackground"
             android:text="1"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -126,6 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/textbackground"
             android:text="Status:"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="@+id/textView13"
@@ -136,6 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:background="@drawable/textbackground"
             android:text="TextView"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -144,8 +166,10 @@
 
         <Button
             android:id="@+id/buttonReachLocation"
-            android:layout_width="121dp"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:background="@drawable/locationbtn_ripple"
+            android:fontFamily="sans-serif-black"
             android:text="Go to location"
             android:textSize="12dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/buttonPlayGame"
@@ -157,7 +181,8 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/textbackground"
             android:text="Game:"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -165,10 +190,12 @@
 
         <Button
             android:id="@+id/buttonPlayGame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/playbtn_ripple"
             android:text="Play the game"
+            android:textColor="#ffffff"
             android:textSize="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.149"
@@ -176,10 +203,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
-            android:id="@+id/textChackpointGame"
+            android:id="@+id/textCheckpointGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/textbackground"
             android:text="TextView"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -214,10 +242,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.075"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.526"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.409"
+            app:layout_constraintVertical_bias="0.394"
             app:layout_constraintWidth_percent="0.075" />
 
         <Button
@@ -230,10 +258,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.075"
-            app:layout_constraintHorizontal_bias="0.225"
+            app:layout_constraintHorizontal_bias="0.239"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.77"
+            app:layout_constraintVertical_bias="0.751"
             app:layout_constraintWidth_percent="0.075" />
 
         <Button
@@ -246,10 +274,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.075"
-            app:layout_constraintHorizontal_bias="0.801"
+            app:layout_constraintHorizontal_bias="0.845"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.22"
+            app:layout_constraintVertical_bias="0.187"
             app:layout_constraintWidth_percent="0.075" />
 
 

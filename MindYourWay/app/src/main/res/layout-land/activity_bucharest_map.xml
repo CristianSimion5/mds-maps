@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/checkpoint_background"
+    android:background="@drawable/bucharest_background"
     tools:context=".CenterMapActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/CenterMap"
+        android:id="@+id/BucharestMap"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/center1"
+        android:background="@drawable/bucharest"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
@@ -24,53 +24,80 @@
         app:layout_constraintWidth_percent="0.55"
         tools:visibility="visible">
 
-        <Button
-            android:id="@+id/buttonCheckpoint2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/btncirclex"
-            android:tag="Center_2"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.075"
-            app:layout_constraintHorizontal_bias="0.239"
+        <ImageView
+            android:id="@+id/locationIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="0px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_mylocation"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.751"
-            app:layout_constraintWidth_percent="0.075" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/buttonCheckpoint1"
+            android:id="@+id/buttonSector2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/btncirclex"
-            android:tag="Center_1"
+            android:tag="Sector3"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.075"
-            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintHeight_percent="0.35"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.394"
-            app:layout_constraintWidth_percent="0.075" />
+            app:layout_constraintVertical_bias="0.639"
+            app:layout_constraintWidth_percent="0.35"
+            tools:visibility="visible" />
 
         <Button
-            android:id="@+id/buttonCheckpoint3"
+            android:id="@+id/buttonCenter2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/btncirclex"
-            android:tag="Center_3"
+            android:tag="Center"
+            android:text=""
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.28"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.28"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/buttonSector1b2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="Sector1"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.075"
-            app:layout_constraintHorizontal_bias="0.845"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintHorizontal_bias="0.465"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.187"
-            app:layout_constraintWidth_percent="0.075" />
+            app:layout_constraintVertical_bias="0.145"
+            app:layout_constraintWidth_percent="0.25"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/buttonSector1a2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="Sector1"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.17"
+            app:layout_constraintHorizontal_bias="0.425"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent="0.5"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,14 +107,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="1"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toEndOf="@+id/CenterMap"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/BucharestMap"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="1">
 
         <Button
-            android:id="@+id/backButton3"
+            android:id="@+id/backButton2"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="75dp"
             android:layout_height="40dp"
@@ -99,17 +126,74 @@
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="275dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="80dp"
-            android:max="3"
-            android:progress="1"
-            android:progressDrawable="@drawable/pb_drawable"
+        <TextView
+            android:id="@+id/textLevelEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textbackground"
+            android:text="2"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
+            app:layout_constraintStart_toEndOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textLevelStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textbackground"
+            android:text="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
+            app:layout_constraintEnd_toStartOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textbackground"
+            android:text="Level range:"
+            android:textSize="20dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintStart_toStartOf="@+id/buttonGoToRegion" />
+
+        <Button
+            android:id="@+id/buttonGoToRegion"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/locationbtn_ripple"
+            android:fontFamily="sans-serif-black"
+            android:text="Go to this region"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textStatus" />
+
+        <Button
+            android:id="@+id/buttonMyLocation"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="62dp"
+            android:background="@drawable/locationbtn_ripple"
+            android:fontFamily="sans-serif-black"
+            android:text="Show my location"
+            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -178,46 +262,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="108dp"
-            android:background="@drawable/textbackground"
-            android:text="Checkpoint:"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonReachLocation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.16"
-            app:layout_constraintStart_toStartOf="@+id/buttonReachLocation" />
-
-        <TextView
-            android:id="@+id/textCheckpointNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/textbackground"
-            android:text="1"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintHorizontal_bias="0.452"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/textbackground"
             android:text="Status:"
             android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView13"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
-            android:id="@+id/textCheckpointStatus"
+            android:id="@+id/textStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -225,56 +283,32 @@
             android:text="TextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <Button
-            android:id="@+id/buttonReachLocation"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:background="@drawable/locationbtn_ripple"
-            android:fontFamily="sans-serif-black"
-            android:text="Go to location"
-            android:textSize="12dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/buttonPlayGame"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonPlayGame" />
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="140dp"
             android:background="@drawable/textbackground"
-            android:text="Game:"
+            android:text="Region:"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/progressBar"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-
-        <Button
-            android:id="@+id/buttonPlayGame"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="44dp"
-            android:background="@drawable/playbtn_ripple"
-            android:fontFamily="sans-serif-black"
-            android:text="Play the game"
-            android:textColor="#ffffff"
-            android:textSize="12dp"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintEnd_toEndOf="@+id/buttonMyLocation"
+            app:layout_constraintTop_toBottomOf="@+id/buttonMyLocation" />
 
         <TextView
-            android:id="@+id/textCheckpointGame"
+            android:id="@+id/textRegionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:background="@drawable/textbackground"
             android:text="TextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/textView13"
-            android:background="@drawable/textbackground" />
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

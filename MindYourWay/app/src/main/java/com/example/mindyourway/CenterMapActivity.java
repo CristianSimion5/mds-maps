@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class CenterMapActivity extends AppCompatActivity {
 
@@ -53,7 +52,7 @@ public class CenterMapActivity extends AppCompatActivity {
         buttonCheckpoint1 = (Button) findViewById(R.id.buttonCheckpoint1);
         buttonCheckpoint2 = (Button) findViewById(R.id.buttonCheckpoint2);
         buttonCheckpoint3 = (Button) findViewById(R.id.buttonCheckpoint3);
-        linearLayoutTitle = (LinearLayout) findViewById(R.id.linearLayoutTitle);
+//        linearLayoutTitle = (LinearLayout) findViewById(R.id.linearLayoutTitle);
         buttonCheckpointList.add(buttonCheckpoint1);
         buttonCheckpointList.add(buttonCheckpoint2);
         buttonCheckpointList.add(buttonCheckpoint3);
@@ -61,7 +60,7 @@ public class CenterMapActivity extends AppCompatActivity {
         buttonPlayGame = (Button) findViewById(R.id.buttonPlayGame);
         textCheckpointNumber = (TextView) findViewById(R.id.textCheckpointNumber);
         textCheckpointStatus = (TextView) findViewById(R.id.textCheckpointStatus);
-        textCheckpointGame = (TextView) findViewById(R.id.textChackpointGame);
+        textCheckpointGame = (TextView) findViewById(R.id.textCheckpointGame);
         textName = (TextView) findViewById(R.id.textName);
         textLevel = (TextView) findViewById(R.id.textLevel);
         centerMap = findViewById(R.id.CenterMap);

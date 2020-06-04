@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/checkpoint_background"
-    tools:context=".Sector3MapActivity">
+    tools:context=".Sector4MapActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
-            android:text="Sector3"
+            android:text="Sector4"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +220,7 @@
         android:id="@+id/RegionMap"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/sector3_1"
+        android:background="@drawable/sector4_1"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintDimensionRatio="1:1"
@@ -237,7 +237,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/btncirclex"
-            android:tag="Sector3_3"
+            android:tag="Sector4_3"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +253,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/btncirclex"
-            android:tag="Sector3_1"
+            android:tag="Sector4_1"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -268,7 +268,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/btncirclex"
-            android:tag="Sector3_2"
+            android:tag="Sector4_2"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

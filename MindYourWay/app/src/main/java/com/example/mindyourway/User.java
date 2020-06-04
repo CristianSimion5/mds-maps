@@ -14,6 +14,12 @@ public class User {
         status.put("Center_1", 1);
         status.put("Center_2", 1);
         status.put("Center_3", 1);
+        status.put("Sector1_1", 1);
+        status.put("Sector1_2", 1);
+        status.put("Sector1_3", 1);
+        status.put("Sector3_1", 1);
+        status.put("Sector3_2", 1);
+        status.put("Sector3_3", 1);
     }
 
     public String getName() {

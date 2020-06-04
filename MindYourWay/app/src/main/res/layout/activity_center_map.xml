@@ -217,10 +217,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/CenterMap"
+        android:id="@+id/RegionMap"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/center1"
+        android:background="@drawable/center_1"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintDimensionRatio="1:1"

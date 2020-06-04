@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Sector3MapActivity extends RegionMapActivity {
+public class Sector4MapActivity extends RegionMapActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sector3_map);
-        regionName = "Sector3";
+        setContentView(R.layout.activity_sector4_map);
+        regionName = "Sector4";
         context = getApplicationContext();
         init();
     }
@@ -18,16 +18,16 @@ public class Sector3MapActivity extends RegionMapActivity {
     @Override
     protected void initGames() {
         super.initGames();
-        games.put("Sector3_1","sudoku");
-        games.put("Sector3_2","sudoku");
-        games.put("Sector3_3","sudoku");
+        games.put("Sector4_1","sudoku");
+        games.put("Sector4_2","sudoku");
+        games.put("Sector4_3","sudoku");
     }
 
     @Override
     protected void initBackgrounds() {
         super.initBackgrounds();
-        backgrounds.put("Sector3_2",R.drawable.sector3_2);
-        backgrounds.put("Sector3_3",R.drawable.sector3_3);
-        backgrounds.put("Sector3_4",R.drawable.sector3_4);
+        backgrounds.put("Sector4_2",R.drawable.sector4_2);
+        backgrounds.put("Sector4_3",R.drawable.sector4_3);
+        backgrounds.put("Sector4_4",R.drawable.sector4_4);
     }
 }

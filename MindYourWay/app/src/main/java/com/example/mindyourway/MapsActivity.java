@@ -71,6 +71,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ImageView mGPS;
     private ImageView mDest;
     private ImageView mReached;
+    private ImageView mBack;
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -112,6 +113,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mGPS = (ImageView) findViewById(R.id.ic_gps);
         mDest = (ImageView) findViewById(R.id.ic_dest);
         mReached = (ImageView) findViewById(R.id.ic_reached);
+        mBack = (ImageView) findViewById(R.id.ic_back);
 
         initMap();
 
@@ -122,6 +124,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         checkpointList.put("Center_1", new Pair<Double, Double>(44.435597, 26.099499));
         checkpointList.put("Center_2", new Pair<Double, Double>(44.421419, 26.076623));
         checkpointList.put("Center_3", new Pair<Double, Double>(44.443625, 26.125010));
+        checkpointList.put("Sector1_1", new Pair<Double, Double>(44.435597, 26.099499));
+        checkpointList.put("Sector1_2", new Pair<Double, Double>(44.421419, 26.076623));
+        checkpointList.put("Sector1_3", new Pair<Double, Double>(44.443625, 26.125010));
+        checkpointList.put("Sector3_1", new Pair<Double, Double>(44.435597, 26.099499));
+        checkpointList.put("Sector3_2", new Pair<Double, Double>(44.421419, 26.076623));
+        checkpointList.put("Sector3_3", new Pair<Double, Double>(44.443625, 26.125010));
     }
 
     private Location getCheckPoint(String x){
@@ -157,6 +165,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 return false;
             }
         });
+        
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: Clicked back");
+                if(destinationString.contains("Center")){
+                    Intent intent = new Intent(MapsActivity.this, CenterMapActivity.class);
+                    startActivity(intent);
+                }
+                if(destinationString.contains("Sector1")){
+                    Intent intent = new Intent(MapsActivity.this, Sector1MapActivity.class);
+                    startActivity(intent);
+                }
+                if(destinationString.contains("Sector3")){
+                    Intent intent = new Intent(MapsActivity.this, Sector3MapActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
         mGPS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,19 +215,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Intent intent = new Intent(MapsActivity.this, CenterMapActivity.class);
                         startActivity(intent);
                     }
+                    if(destinationString.contains("Sector1")){
+                        Intent intent = new Intent(MapsActivity.this, Sector1MapActivity.class);
+                        startActivity(intent);
+                    }
+                    if(destinationString.contains("Sector3")){
+                        Intent intent = new Intent(MapsActivity.this, Sector3MapActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
     }
 
     private boolean checkIfReachedDestination() {
-        getDeviceLocation(false);
+        /*getDeviceLocation(false);
         double distance = currentLocation.distanceTo(checkPoint);
         Log.d(TAG, "checkIfReachedDestination: distance is: " + distance);
         if (distance < 10){
             return true;
         }
-        return false;
+        return false;*/
+        return true;
     }
 
     private void getDestinationLocation() {

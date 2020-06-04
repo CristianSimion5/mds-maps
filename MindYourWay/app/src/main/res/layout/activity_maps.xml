@@ -73,4 +73,15 @@
         android:scaleType="centerCrop"
         android:id="@+id/ic_reached"
         android:src="@drawable/ic_reached"/>
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ic_dest"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_back" />
 </RelativeLayout>

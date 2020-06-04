@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SudokuActivity">
-        </activity>
+        <activity android:name=".Sector4MapActivity"></activity>
+        <activity android:name=".Sector2MapActivity" />
+        <activity android:name=".SudokuActivity" />
         <activity android:name=".Sector3MapActivity" />
         <activity android:name=".Sector1MapActivity" />
         <activity android:name=".CenterMapActivity" />
-        <activity android:name=".BucharestMapActivity"></activity>
+        <activity android:name=".BucharestMapActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -44,10 +45,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

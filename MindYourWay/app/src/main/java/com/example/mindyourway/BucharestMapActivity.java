@@ -2,6 +2,7 @@ package com.example.mindyourway;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
@@ -37,6 +38,7 @@ public class BucharestMapActivity extends AppCompatActivity {
 
     //widgets
     private Button buttonGoToRegion;
+    private Button buttonBack;
     private ArrayList<View> buttonList;
     private TextView textLevelEnd;
     private TextView textLevelStart;
@@ -104,6 +106,15 @@ public class BucharestMapActivity extends AppCompatActivity {
         textName = (TextView) findViewById(R.id.textName);
         textLevel = (TextView) findViewById(R.id.textLevel);
 
+        buttonBack = (Button) findViewById(R.id.backButton);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BucharestMapActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         textName.setText(MainActivity.user.getName());
         textLevel.setText(String.valueOf(MainActivity.user.getLevel()));
         buttonMyLocation.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +168,15 @@ public class BucharestMapActivity extends AppCompatActivity {
                     Intent intent = new Intent(BucharestMapActivity.this, Sector3MapActivity.class);
                     startActivity(intent);
                 }
+                if(regionName.equals("Sector2")) {
+                    Intent intent = new Intent(BucharestMapActivity.this, Sector2MapActivity.class);
+                    startActivity(intent);
+                }
+                if(regionName.equals("Sector4")) {
+                    Intent intent = new Intent(BucharestMapActivity.this, Sector4MapActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
     }

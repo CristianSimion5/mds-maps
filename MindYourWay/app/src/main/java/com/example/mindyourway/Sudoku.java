@@ -1,5 +1,7 @@
 package com.example.mindyourway;
 
+import android.app.ActionBar;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Sudoku {
@@ -7,10 +9,16 @@ public class Sudoku {
     private int[][] table2 = new int[9][9];
     private int[][] table1 = new int[9][9];
     private int u = 1;
-    private int numbersMissing;
+    private int numbersMissing=0;
 
-    public Sudoku(int x, int y, int value, int number) {
-        this.numbersMissing = number;
+    public Sudoku(int[][][] Table) {
+        copy(table1, Table[0]);
+        copy(table, Table[1]);
+        copy(table2, Table[2]);
+    }
+
+    public Sudoku(int x, int y, int value, int difficulty) {
+        this.numbersMissing = difficulty;
         for(int i = 0; i < 9; i++){
             for(int j = 0; j < 9; j++){
                 table[i][j] = 0;
@@ -18,7 +26,9 @@ public class Sudoku {
         }
         table[x][y] = value;
         solve();
+        copy(table2,table);
         removeElements(numbersMissing);
+        copy(table1,table);
     }
 
     private void copy(int[][] table1, int[][] table2){
@@ -54,13 +64,30 @@ public class Sudoku {
         return Table;
     }
     public int[][] getTableUnsolved(){
-        solve();
         int[][] Table = new int[9][9];
         for(int i = 0; i < 9; i++){
             for(int j = 0; j < 9; j++){
                 Table[i][j] = this.table1[i][j];
             }
         }
+        return Table;
+    }
+
+    public int[][] getTableSolved(){
+        int[][] Table = new int[9][9];
+        for(int i = 0; i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                Table[i][j] = this.table2[i][j];
+            }
+        }
+        return Table;
+    }
+
+    public int[][][] getCurrentState() {
+        int[][][] Table = new int[3][9][9];
+        Table[0] = getTableUnsolved();
+        Table[1] = getTable();
+        Table[2] = getTableSolved();
         return Table;
     }
 
@@ -104,7 +131,7 @@ public class Sudoku {
     public boolean checkIfSolved(){
         for(int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (table[i][j]==0)
+                if (table[i][j]!=table2[i][j])
                     return false;
             }
         }
@@ -159,9 +186,7 @@ public class Sudoku {
             k--;
         }
     }
-    private void removeElementsUntilUnsolvable(){
 
-    }
 
     private boolean checkIfSolvable(){
         copy(table2,table);

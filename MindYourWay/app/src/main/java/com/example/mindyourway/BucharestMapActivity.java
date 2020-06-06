@@ -62,6 +62,8 @@ public class BucharestMapActivity extends AppCompatActivity {
         levelRangerForRegions.put("Center", new Pair<Integer, Integer>(1,5));
         levelRangerForRegions.put("Sector1", new Pair<Integer, Integer>(5,10));
         levelRangerForRegions.put("Sector3", new Pair<Integer, Integer>(5,15));
+        levelRangerForRegions.put("Sector2", new Pair<Integer, Integer>(15,20));
+        levelRangerForRegions.put("Sector4", new Pair<Integer, Integer>(15,25));
         //Log.d(TAG, "generateLevels: "+levelRangerForRegions.get("Center").first.toString());
     }
 
@@ -147,7 +149,44 @@ public class BucharestMapActivity extends AppCompatActivity {
         Log.d(TAG, "instantiateRegionDescription: "+regionName);
         int levelStart = levelRangerForRegions.get(regionName).first;
         int levelEnd = levelRangerForRegions.get(regionName).second;
-        String status = "Completed";
+        String status = "Coming soon";
+
+        if(MainActivity.user.getStatus(regionName+"_"+String.valueOf(1)) == 1) {
+            if(regionName.equals("Sector1") || regionName.equals("Sector3")) {
+                if(MainActivity.user.getStatus("Center3") != 4) {
+                    status = "Region unavailable yet";
+                } else {
+                    MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
+                    status = "0/3 checkpoints completed";
+                }
+            }
+            if(regionName.equals("Sector2")) {
+                if(MainActivity.user.getStatus("Sector1") != 4) {
+                    status = "Region unavailable yet";
+                } else {
+                    MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
+                    status = "0/3 checkpoints completed";
+                }
+            }
+            if(regionName.equals("Sector4")) {
+                if(MainActivity.user.getStatus("Sector3") != 4) {
+                    status = "Region unavailable yet";
+                } else {
+                    status = "0/3 checkpoints completed";
+                    MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
+                }
+            }
+        } else {
+            int progress = 0;
+            while(MainActivity.user.getStatus(regionName+"_"+String.valueOf(progress + 1))==4) {
+                progress++;
+            }
+            if(progress == 3) {
+                status = "Completed";
+            } else {
+                status = String.valueOf(progress)+"/3 checkpoints completed";
+            }
+        }
 
         textRegionName.setText(regionName);
         textLevelStart.setText(String.valueOf(levelStart));
@@ -160,19 +199,19 @@ public class BucharestMapActivity extends AppCompatActivity {
                     Intent intent = new Intent(BucharestMapActivity.this, CenterMapActivity.class);
                     startActivity(intent);
                 }
-                if(regionName.equals("Sector1")) {
+                else if(regionName.equals("Sector1")) {
                     Intent intent = new Intent(BucharestMapActivity.this, Sector1MapActivity.class);
                     startActivity(intent);
                 }
-                if(regionName.equals("Sector3")) {
+                else if(regionName.equals("Sector3")) {
                     Intent intent = new Intent(BucharestMapActivity.this, Sector3MapActivity.class);
                     startActivity(intent);
                 }
-                if(regionName.equals("Sector2")) {
+                else if(regionName.equals("Sector2")) {
                     Intent intent = new Intent(BucharestMapActivity.this, Sector2MapActivity.class);
                     startActivity(intent);
                 }
-                if(regionName.equals("Sector4")) {
+                else if(regionName.equals("Sector4")) {
                     Intent intent = new Intent(BucharestMapActivity.this, Sector4MapActivity.class);
                     startActivity(intent);
                 }

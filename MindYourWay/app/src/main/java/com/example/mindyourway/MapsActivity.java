@@ -229,14 +229,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private boolean checkIfReachedDestination() {
-        /*getDeviceLocation(false);
-        double distance = currentLocation.distanceTo(checkPoint);
-        Log.d(TAG, "checkIfReachedDestination: distance is: " + distance);
-        if (distance < 10){
+        if(MainActivity.user.isAdmin()) {
             return true;
+        } else {
+            getDeviceLocation(false);
+            double distance = currentLocation.distanceTo(checkPoint);
+            Log.d(TAG, "checkIfReachedDestination: distance is: " + distance);
+            if (distance < 10){
+                return true;
+            }
+            return false;
         }
-        return false;*/
-        return true;
     }
 
     private void getDestinationLocation() {

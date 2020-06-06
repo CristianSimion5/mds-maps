@@ -109,7 +109,7 @@ public class RegionMapActivity extends AppCompatActivity {
         progressBar.setProgress(progress);
         Button button = buttonCheckpointList.get(progress);
         String tag = button.getTag().toString();
-        if(MainActivity.user.getStatus(tag) == 1) {
+        if(progress != 0 && MainActivity.user.getStatus(tag) == 1) {
             MainActivity.user.incrementStatus(tag);
         }
         String string = new String(regionName);

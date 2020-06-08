@@ -17,7 +17,7 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegionMapActivity extends AppCompatActivity {
-    public static final String centerExtra = "com.example.MindYourWay.Center.EXTRA_TEXT";
+    public static final String regionExtra = "com.example.MindYourWay.Region.EXTRA_TEXT";
     protected static final String TAG = "RegionMapActivity";
     protected static String regionName = "Region";
     protected Context context;
@@ -107,6 +107,9 @@ public class RegionMapActivity extends AppCompatActivity {
         }
 
         progressBar.setProgress(progress);
+        if(progress == 3) {
+            progress--;
+        }
         Button button = buttonCheckpointList.get(progress);
         String tag = button.getTag().toString();
         if(progress != 0 && MainActivity.user.getStatus(tag) == 1) {
@@ -114,18 +117,21 @@ public class RegionMapActivity extends AppCompatActivity {
         }
         String string = new String(regionName);
         string+="_";
-        if(MainActivity.user.getStatus(tag) == 3) {
+        if(MainActivity.user.getStatus(tag) >= 3) {
             button.setBackground(getResources().getDrawable(R.drawable.btncirclez));
             if(progress == 0) {
                 string+=String.valueOf(2);
                 regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
+                Log.d(TAG, "initProgress: 2");
             }
             else if(progress == 1) {
                 string+=String.valueOf(3);
                 regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
+                Log.d(TAG, "initProgress: 3");
             } else if (progress == 2) {
                 string+=String.valueOf(4);
                 regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
+                Log.d(TAG, "initProgress: 4");
             }
         }
 
@@ -148,7 +154,7 @@ public class RegionMapActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(MainActivity.user.getStatus(tag)>=2) {
                     Intent intent = new Intent(context, MapsActivity.class);
-                    intent.putExtra(centerExtra, tag);
+                    intent.putExtra(regionExtra, tag);
                     startActivity(intent);
                 } else {
                     Toast.makeText(context, "You can't go to this checkpoint yet.", Toast.LENGTH_SHORT).show();
@@ -161,7 +167,7 @@ public class RegionMapActivity extends AppCompatActivity {
                 if(MainActivity.user.getStatus(tag)>=3) {
                     if (game.equals("sudoku")) {
                         Intent intent = new Intent(context, SudokuActivity.class);
-                        intent.putExtra(centerExtra, tag);
+                        intent.putExtra(regionExtra, tag);
                         startActivity(intent);
                     }
                 } else {
@@ -183,7 +189,7 @@ public class RegionMapActivity extends AppCompatActivity {
                 status =  "Checkpoint not reached";
                 break;
             case 3:
-                status = "Checkpoint reached, game available";
+                status = "Game available";
                 break;
             default:
                 status = "Checkpoint completed";

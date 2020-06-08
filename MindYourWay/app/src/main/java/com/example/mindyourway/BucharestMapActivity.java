@@ -178,7 +178,7 @@ public class BucharestMapActivity extends AppCompatActivity {
             }
         } else {
             int progress = 0;
-            while(MainActivity.user.getStatus(regionName+"_"+String.valueOf(progress + 1))==4) {
+            while(MainActivity.user.getStatus(regionName+"_"+ (progress + 1))==4) {
                 progress++;
             }
             if(progress == 3) {

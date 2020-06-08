@@ -36,12 +36,14 @@ public class SudokuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sudoku);
         Intent intent = getIntent();
-        checkpointString = intent.getStringExtra(CenterMapActivity.centerExtra);
+        checkpointString = intent.getStringExtra(CenterMapActivity.regionExtra);
+        Log.d(TAG, "onCreate: "+checkpointString);
         init();
     }
 
     private void init() {
         buttonComplete = (Button) findViewById(R.id.buttonComplete);
+        buttonEmpty = (Button) findViewById(R.id.buttonEmpty) ;
         buttonBack = (Button) findViewById(R.id.buttonBack);
         final Sudoku sudoku;
 

@@ -106,7 +106,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Intent intent = getIntent();
         Log.d(TAG, "onCreate: hey");
-        destinationString = intent.getStringExtra(CenterMapActivity.centerExtra);
+        destinationString = intent.getStringExtra(CenterMapActivity.regionExtra);
         checkPoint = getCheckPoint(destinationString);
 
         mSearchText = (EditText) findViewById(R.id.input_search);

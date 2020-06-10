@@ -1,6 +1,7 @@
 package com.example.mindyourway;
 
 import android.app.ActionBar;
+import android.util.Log;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -52,6 +53,12 @@ public class Sudoku {
                 this.table[i][j] = sudoku.table[i][j];
             }
         }
+    }
+
+    public boolean isChangeable(int x, int y) {
+        if (table1[x][y] != 0)
+            return true;
+        return false;
     }
 
     public int[][] getTable() {

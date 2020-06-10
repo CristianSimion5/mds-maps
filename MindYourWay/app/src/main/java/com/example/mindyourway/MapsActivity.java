@@ -124,12 +124,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         checkpointList.put("Center_1", new Pair<Double, Double>(44.435597, 26.099499));
         checkpointList.put("Center_2", new Pair<Double, Double>(44.421419, 26.076623));
         checkpointList.put("Center_3", new Pair<Double, Double>(44.443625, 26.125010));
-        checkpointList.put("Sector1_1", new Pair<Double, Double>(44.435597, 26.099499));
-        checkpointList.put("Sector1_2", new Pair<Double, Double>(44.421419, 26.076623));
-        checkpointList.put("Sector1_3", new Pair<Double, Double>(44.443625, 26.125010));
-        checkpointList.put("Sector3_1", new Pair<Double, Double>(44.435597, 26.099499));
-        checkpointList.put("Sector3_2", new Pair<Double, Double>(44.421419, 26.076623));
-        checkpointList.put("Sector3_3", new Pair<Double, Double>(44.443625, 26.125010));
+        checkpointList.put("Sector1_1", new Pair<Double, Double>(44.470549, 26.082531));
+        checkpointList.put("Sector1_2", new Pair<Double, Double>(44.487989, 26.035603));
+        checkpointList.put("Sector1_3", new Pair<Double, Double>(44.492474, 26.125949));
+        checkpointList.put("Sector2_1", new Pair<Double, Double>(44.486887, 26.163312));
+        checkpointList.put("Sector2_2", new Pair<Double, Double>(44.458989, 26.206804));
+        checkpointList.put("Sector2_3", new Pair<Double, Double>(44.458136, 26.141733));
+        checkpointList.put("Sector3_1", new Pair<Double, Double>(44.432657, 26.154378));
+        checkpointList.put("Sector3_2", new Pair<Double, Double>(44.409788, 26.179956));
+        checkpointList.put("Sector3_3", new Pair<Double, Double>(44.429298, 26.214788));
+        checkpointList.put("Sector4_1", new Pair<Double, Double>(44.399703, 26.105823));
+        checkpointList.put("Sector4_2", new Pair<Double, Double>(44.381392, 26.163721));
+        checkpointList.put("Sector4_3", new Pair<Double, Double>(44.374034, 26.130703));
     }
 
     private Location getCheckPoint(String x){
@@ -178,8 +184,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Intent intent = new Intent(MapsActivity.this, Sector1MapActivity.class);
                     startActivity(intent);
                 }
+                if(destinationString.contains("Sector2")){
+                    Intent intent = new Intent(MapsActivity.this, Sector2MapActivity.class);
+                    startActivity(intent);
+                }
                 if(destinationString.contains("Sector3")){
                     Intent intent = new Intent(MapsActivity.this, Sector3MapActivity.class);
+                    startActivity(intent);
+                }
+                if(destinationString.contains("Sector4")){
+                    Intent intent = new Intent(MapsActivity.this, Sector4MapActivity.class);
                     startActivity(intent);
                 }
             }
@@ -219,8 +233,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Intent intent = new Intent(MapsActivity.this, Sector1MapActivity.class);
                         startActivity(intent);
                     }
+                    if(destinationString.contains("Sector2")){
+                        Intent intent = new Intent(MapsActivity.this, Sector2MapActivity.class);
+                        startActivity(intent);
+                    }
                     if(destinationString.contains("Sector3")){
                         Intent intent = new Intent(MapsActivity.this, Sector3MapActivity.class);
+                        startActivity(intent);
+                    }
+                    if(destinationString.contains("Sector4")){
+                        Intent intent = new Intent(MapsActivity.this, Sector4MapActivity.class);
                         startActivity(intent);
                     }
                 }

@@ -37,6 +37,7 @@ public class CenterMapActivity extends RegionMapActivity {
     @Override
     protected void initBackgrounds() {
         super.initBackgrounds();
+        backgrounds.put("Center_1",R.drawable.center_1);
         backgrounds.put("Center_2",R.drawable.center_2);
         backgrounds.put("Center_3",R.drawable.center_3);
         backgrounds.put("Center_4",R.drawable.center_4);

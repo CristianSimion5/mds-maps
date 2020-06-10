@@ -54,6 +54,7 @@ public class RegionMapActivity extends AppCompatActivity {
     protected void init() {
         initGames();
         initBackgrounds();
+        Log.d(TAG, "init: "+ regionName);
         buttonCheckpointList = new ArrayList<>();
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         buttonCheckpoint1 = (Button) findViewById(R.id.buttonCheckpoint1);
@@ -75,11 +76,12 @@ public class RegionMapActivity extends AppCompatActivity {
         textName.setText(MainActivity.user.getName());
         textLevel.setText(String.valueOf(MainActivity.user.getLevel()));
 
-        buttonBack = (Button) findViewById(R.id.BackButton);
+        buttonBack = (Button) findViewById(R.id.backButton);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BucharestMapActivity.class);
+                Log.d(TAG, "onClick: asd");
                 startActivity(intent);
             }
         });
@@ -119,22 +121,17 @@ public class RegionMapActivity extends AppCompatActivity {
         string+="_";
         if(MainActivity.user.getStatus(tag) >= 3) {
             button.setBackground(getResources().getDrawable(R.drawable.btncirclez));
-            if(progress == 0) {
-                string+=String.valueOf(2);
-                regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
-                Log.d(TAG, "initProgress: 2");
-            }
-            else if(progress == 1) {
-                string+=String.valueOf(3);
-                regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
-                Log.d(TAG, "initProgress: 3");
-            } else if (progress == 2) {
-                string+=String.valueOf(4);
-                regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
-                Log.d(TAG, "initProgress: 4");
-            }
+            string+=String.valueOf(progress + 2);
+            Log.d(TAG, "initProgress: "+ string);
+            regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
+        } else {
+            string+=String.valueOf(progress + 1);
+            Log.d(TAG, "initProgress: "+ string);
+            regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
         }
-
+        if(MainActivity.user.getStatus(regionName+"_3")==4) {
+            button.setBackground(getResources().getDrawable(R.drawable.btncircle));
+        }
         initCheckpoint(buttonCheckpointList.get(progress));
     }
 

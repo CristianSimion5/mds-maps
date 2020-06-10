@@ -26,6 +26,7 @@ public class Sector3MapActivity extends RegionMapActivity {
     @Override
     protected void initBackgrounds() {
         super.initBackgrounds();
+        backgrounds.put("Sector3_1",R.drawable.sector3_1);
         backgrounds.put("Sector3_2",R.drawable.sector3_2);
         backgrounds.put("Sector3_3",R.drawable.sector3_3);
         backgrounds.put("Sector3_4",R.drawable.sector3_4);

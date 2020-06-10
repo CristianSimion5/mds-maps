@@ -15,16 +15,21 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SudokuActivity extends AppCompatActivity {
 
     private static final String TAG = "SudokuActivity";
 
+    private Sudoku sudoku;
+    private int[][] table;
+    private int[][] tableUnsolved;
+    private int[][] tableSolved;
     private Button buttonComplete;
     private String checkpointString;
     private Button[][] buttonsSudoku = new Button[9][9];
-    private Button[] buttonsDigit = new Button[9];;
+    private Button[] buttonsDigit = new Button[9];
     private Button buttonEmpty;
     private Button buttonBack;
 
@@ -45,11 +50,12 @@ public class SudokuActivity extends AppCompatActivity {
         buttonComplete = (Button) findViewById(R.id.buttonComplete);
         buttonEmpty = (Button) findViewById(R.id.buttonEmpty) ;
         buttonBack = (Button) findViewById(R.id.buttonBack);
-        final Sudoku sudoku;
-
-        if(MainActivity.user.checkSudokuGame(checkpointString))
+        if(MainActivity.user.checkSudokuGame(checkpointString)){
             sudoku = new Sudoku(MainActivity.user.getSudokuGame(checkpointString));
+            Log.d(TAG, "init: was created");
+        }
         else {
+            Log.d(TAG, "init: was not created");
             int difficulty = 0;
             if (checkpointString.contains("Center")) {
                 difficulty = 35;
@@ -63,14 +69,19 @@ public class SudokuActivity extends AppCompatActivity {
             int j =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
             int val =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
             sudoku = new Sudoku(i, j, val, difficulty);
+            MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
         }
 
-        final int[][] table = sudoku.getTable();
+        table = sudoku.getTable();
+        tableSolved = sudoku.getTableSolved();
+        tableUnsolved = sudoku.getTableUnsolved();
 
         for (int i = 0;i<9;i++){
+            String string = "";
             for(int j=0;j<9;j++){
-                //Log.d(TAG, "init: "+String.valueOf(table[i][j]));
+                string+=table[i][j] + " ";
             }
+            //Log.d(TAG, "init: "+string);
         }
 
         for(int i = 0; i < 9; i++){
@@ -82,9 +93,8 @@ public class SudokuActivity extends AppCompatActivity {
                     String string = String.valueOf(table[i][j]);
                     SpannableStringBuilder builder = new SpannableStringBuilder(string);
                     builder.setSpan(new StyleSpan(Typeface.BOLD), 0, string.length(), 0);
-                    Log.d(TAG, "init: "+builder);
+                    //Log.d(TAG, "init: "+builder);
                     buttonsSudoku[i][j].setText(string);
-                   // buttonsSudoku[i][j].setText("");
 
                 } else {
                     buttonsSudoku[i][j].setText("");
@@ -109,19 +119,21 @@ public class SudokuActivity extends AppCompatActivity {
             buttonsDigit[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int digit = Integer.parseInt(buttonsDigit[finalI].getText().toString());
-                    buttonsSudoku[xCurrent][yCurrent].setText(String.valueOf(digit));
-                    if(sudoku.checkElement(xCurrent, yCurrent, digit)) {
-                        Log.d(TAG, "onClick: 1");
-                        MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
-                        table[xCurrent][yCurrent]=digit;
-                        sudoku.setElement(xCurrent, yCurrent,digit);
-                        buttonsSudoku[xCurrent][yCurrent].setTextColor(getApplication().getResources().getColor(R.color.black));
-                        if(sudoku.checkIfSolved()){
-                            buttonComplete.performClick();
+                    if (!sudoku.isChangeable(xCurrent,yCurrent)) {
+                        int digit = Integer.parseInt(buttonsDigit[finalI].getText().toString());
+                        buttonsSudoku[xCurrent][yCurrent].setText(String.valueOf(digit));
+                        if (sudoku.checkElement(xCurrent, yCurrent, digit)) {
+                            Log.d(TAG, "onClick: 1");
+                            table[xCurrent][yCurrent] = digit;
+                            sudoku.setElement(xCurrent, yCurrent, digit);
+                            MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
+                            buttonsSudoku[xCurrent][yCurrent].setTextColor(getApplication().getResources().getColor(R.color.black));
+                            if (sudoku.checkIfSolved()) {
+                                buttonComplete.performClick();
+                            }
+                        } else {
+                            buttonsSudoku[xCurrent][yCurrent].setTextColor(getApplication().getResources().getColor(R.color.red));
                         }
-                    } else {
-                        buttonsSudoku[xCurrent][yCurrent].setTextColor(getApplication().getResources().getColor(R.color.red));
                     }
                 }
             });
@@ -131,9 +143,9 @@ public class SudokuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonsSudoku[xCurrent][yCurrent].setText("");
-                MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
                 table[xCurrent][yCurrent]=0;
                 sudoku.setElement(xCurrent, yCurrent,0);
+                MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
             }
         });
 

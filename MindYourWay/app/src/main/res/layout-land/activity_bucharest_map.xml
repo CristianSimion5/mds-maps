@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/buttonSector2"
+            android:id="@+id/buttonSector3"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:tag="Sector3"
@@ -52,7 +52,7 @@
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/buttonCenter2"
+            android:id="@+id/buttonCenter"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:tag="Center"
@@ -68,7 +68,7 @@
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/buttonSector1b2"
+            android:id="@+id/buttonSector1_1"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:tag="Sector1"
@@ -84,7 +84,7 @@
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/buttonSector1a2"
+            android:id="@+id/buttonSector1_2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:tag="Sector1"
@@ -98,6 +98,149 @@
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent="0.5"
             tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/buttonSector2_1"
+            android:layout_width="133dp"
+            android:layout_height="84dp"
+            android:tag="Sector2"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.932"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.202" />
+
+        <Button
+            android:id="@+id/buttonSector2_2"
+            android:layout_width="64dp"
+            android:layout_height="58dp"
+            android:tag="Sector2"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.859"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/buttonSector2_3"
+            android:layout_width="87dp"
+            android:layout_height="26dp"
+            android:tag="Sector2"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.865"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.389" />
+
+        <Button
+            android:id="@+id/buttonSector4_1"
+            android:layout_width="60dp"
+            android:layout_height="53dp"
+            android:tag="Sector4"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.596"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.747" />
+
+        <Button
+            android:id="@+id/buttonSector4_2"
+            android:layout_width="159dp"
+            android:layout_height="86dp"
+            android:tag="Sector4"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.857"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/buttonSector5_1"
+            android:layout_width="109dp"
+            android:layout_height="49dp"
+            android:tag="Sector5"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.122"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.623" />
+
+        <Button
+            android:id="@+id/buttonSector5_2"
+            android:layout_width="93dp"
+            android:layout_height="132dp"
+            android:tag="Sector5"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.328"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/buttonSector5_3"
+            android:layout_width="45dp"
+            android:layout_height="93dp"
+            android:tag="Sector5"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.862" />
+
+        <Button
+            android:id="@+id/buttonSector6_1"
+            android:layout_width="111dp"
+            android:layout_height="76dp"
+            android:tag="Sector6"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.077"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.455" />
+
+        <Button
+            android:id="@+id/buttonSector6_2"
+            android:layout_width="112dp"
+            android:layout_height="81dp"
+            android:tag="Sector6"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <Button
+            android:id="@+id/buttonSector6_3"
+            android:layout_width="37dp"
+            android:layout_height="38dp"
+            android:tag="Sector6"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.128"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.076" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,7 +257,7 @@
         app:layout_constraintWidth_percent="1">
 
         <Button
-            android:id="@+id/backButton2"
+            android:id="@+id/backButton"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="75dp"
             android:layout_height="40dp"

@@ -64,6 +64,8 @@ public class BucharestMapActivity extends AppCompatActivity {
         levelRangerForRegions.put("Sector3", new Pair<Integer, Integer>(5,15));
         levelRangerForRegions.put("Sector2", new Pair<Integer, Integer>(15,20));
         levelRangerForRegions.put("Sector4", new Pair<Integer, Integer>(15,25));
+        levelRangerForRegions.put("Sector5", new Pair<Integer, Integer>(30,40));
+        levelRangerForRegions.put("Sector6", new Pair<Integer, Integer>(25,35));
         //Log.d(TAG, "generateLevels: "+levelRangerForRegions.get("Center").first.toString());
     }
 
@@ -72,16 +74,14 @@ public class BucharestMapActivity extends AppCompatActivity {
         bucharestMap.getLocationOnScreen(location);
         int x = location[0];
         int y = location[1];
-        x-=30;
-        y-=130;
         int dx = bucharestMap.getWidth();
         int dy = bucharestMap.getHeight();
-        //Log.d(TAG, "pointMyLocationOnMap: "+ x +" "+ y+" "+dx+" "+dy);
+        Log.d(TAG, "pointMyLocationOnMap: "+ x +" "+ y+" "+dx+" "+dy);
         double rx = (myLocation.longitude - cornerLeftUp.longitude) / (cornerRightDown.longitude - cornerLeftUp.longitude);
         double ry = (myLocation.latitude - cornerLeftUp.latitude) / (cornerRightDown.latitude - cornerLeftUp.latitude);
-        int myX = (int)(x + dx * rx);
-        int myY = (int)(y + dy * ry);
-        Log.d(TAG, "pointMyLocationOnMap: "+ myX+ " "+ myY);
+        int myX = (int)(dx * rx-40);
+        int myY = (int)(dy * ry-40);
+        Log.d(TAG, "pointMyLocationOnMap: "+ rx + " " + ry + " " + myX + " "+ myY);
         myLocationIcon.setX(myX);
         myLocationIcon.setY(myY);
         myLocationIcon.setVisibility(View.VISIBLE);
@@ -122,9 +122,11 @@ public class BucharestMapActivity extends AppCompatActivity {
         buttonMyLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 getDeviceLocation();
                 //myLocation = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-                //Log.d(TAG, "onClick: "+myLocation.latitude+myLocation.longitude);
+                //pointMyLocationOnMap(myLocation);
+                Log.d(TAG, "onClick: "+ myLocation.latitude + myLocation.longitude);
 
             }
         });
@@ -150,41 +152,43 @@ public class BucharestMapActivity extends AppCompatActivity {
         int levelStart = levelRangerForRegions.get(regionName).first;
         int levelEnd = levelRangerForRegions.get(regionName).second;
         String status = "Coming soon";
-
-        if(MainActivity.user.getStatus(regionName+"_"+String.valueOf(1)) == 1) {
-            if(regionName.equals("Sector1") || regionName.equals("Sector3")) {
-                if(MainActivity.user.getStatus("Center3") != 4) {
-                    status = "Region unavailable yet";
-                } else {
-                    MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
-                    status = "0/3 checkpoints completed";
+        if(!regionName.equals("Sector5") && !regionName.equals("Sector6")) {
+            if(MainActivity.user.getStatus(regionName+"_"+String.valueOf(1)) == 1) {
+                if(regionName.equals("Sector1") || regionName.equals("Sector3")) {
+                    if(MainActivity.user.getStatus("Center_3") != 4) {
+                        status = "Region unavailable yet";
+                    } else {
+                        MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
+                        status = "0/3 checkpoints completed";
+                    }
                 }
-            }
-            if(regionName.equals("Sector2")) {
-                if(MainActivity.user.getStatus("Sector1") != 4) {
-                    status = "Region unavailable yet";
-                } else {
-                    MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
-                    status = "0/3 checkpoints completed";
+                if(regionName.equals("Sector2")) {
+                    if(MainActivity.user.getStatus("Sector1_3") != 4) {
+                        status = "Region unavailable yet";
+                    } else {
+                        MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
+                        status = "0/3 checkpoints completed";
+                    }
                 }
-            }
-            if(regionName.equals("Sector4")) {
-                if(MainActivity.user.getStatus("Sector3") != 4) {
-                    status = "Region unavailable yet";
-                } else {
-                    status = "0/3 checkpoints completed";
-                    MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
+                if(regionName.equals("Sector4")) {
+                    if(MainActivity.user.getStatus("Sector3_3") != 4) {
+                        status = "Region unavailable yet";
+                    } else {
+                        status = "0/3 checkpoints completed";
+                        MainActivity.user.incrementStatus(regionName+"_"+String.valueOf(1));
+                    }
                 }
-            }
-        } else {
-            int progress = 0;
-            while(MainActivity.user.getStatus(regionName+"_"+ (progress + 1))==4) {
-                progress++;
-            }
-            if(progress == 3) {
-                status = "Completed";
             } else {
-                status = String.valueOf(progress)+"/3 checkpoints completed";
+                int progress = 0;
+
+                while (progress < 3 && MainActivity.user.getStatus(regionName + "_" + (progress + 1)) == 4) {
+                    progress++;
+                }
+                if (progress == 3) {
+                    status = "Completed";
+                } else {
+                    status = String.valueOf(progress) + "/3 checkpoints completed";
+                }
             }
         }
 
@@ -228,7 +232,7 @@ public class BucharestMapActivity extends AppCompatActivity {
             public void onSuccess(Location location) {
                 if(location!=null){
                     Log.d(TAG, "onSuccess: "+location.getLatitude()+ " "+ location.getLongitude());
-                    //myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                    myLocation = new LatLng(location.getLatitude(), location.getLongitude());
                     if(checkIfInCity(myLocation)) {
                         pointMyLocationOnMap(myLocation);
                     } else {

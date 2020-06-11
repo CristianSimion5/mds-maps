@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean mLocationPermissionGranted = false;
 
     //Model
-    public static final User user = new User();
+    public static User user;
 
     //widgets
     private Button btnMap;
@@ -89,8 +89,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        user = new User(this);
         btnMap = (Button) findViewById(R.id.btnMap);
         textName = (TextView) findViewById(R.id.textName);
+        textName.setText(user.getName());
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

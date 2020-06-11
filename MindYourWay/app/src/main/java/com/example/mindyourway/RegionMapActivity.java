@@ -161,6 +161,7 @@ public class RegionMapActivity extends AppCompatActivity {
         buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ///aici trebuie sa completez
                 if(MainActivity.user.getStatus(tag)>=3) {
                     if (game.equals("sudoku")) {
                         Intent intent = new Intent(context, SudokuActivity.class);

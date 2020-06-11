@@ -6,12 +6,12 @@ public class User {
     private String name;
     private Integer level;
     private HashMap<String,Integer> status;
-    private boolean admin = true;
+    private boolean admin = false;
     private HashMap<String,int[][][]> sudokuGames;
 
     public User(){
         this.name = "";
-        this.level = 1;
+        this.level = 0;
         this.status = new HashMap<>();
         this.sudokuGames = new HashMap<>();
 

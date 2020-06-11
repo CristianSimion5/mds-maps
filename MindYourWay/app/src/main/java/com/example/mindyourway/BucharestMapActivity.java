@@ -59,12 +59,12 @@ public class BucharestMapActivity extends AppCompatActivity {
 
     private void generateLevels(){
         levelRangerForRegions = new HashMap<>();
-        levelRangerForRegions.put("Center", new Pair<Integer, Integer>(1,5));
-        levelRangerForRegions.put("Sector1", new Pair<Integer, Integer>(5,10));
+        levelRangerForRegions.put("Center", new Pair<Integer, Integer>(0,5));
+        levelRangerForRegions.put("Sector1", new Pair<Integer, Integer>(5,15));
         levelRangerForRegions.put("Sector3", new Pair<Integer, Integer>(5,15));
-        levelRangerForRegions.put("Sector2", new Pair<Integer, Integer>(15,20));
+        levelRangerForRegions.put("Sector2", new Pair<Integer, Integer>(15,25));
         levelRangerForRegions.put("Sector4", new Pair<Integer, Integer>(15,25));
-        levelRangerForRegions.put("Sector5", new Pair<Integer, Integer>(30,40));
+        levelRangerForRegions.put("Sector5", new Pair<Integer, Integer>(25,35));
         levelRangerForRegions.put("Sector6", new Pair<Integer, Integer>(25,35));
         //Log.d(TAG, "generateLevels: "+levelRangerForRegions.get("Center").first.toString());
     }

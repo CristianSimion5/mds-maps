@@ -3,29 +3,42 @@ package com.example.mindyourway;
 import android.app.ActionBar;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Sudoku {
-    private int[][] table = new int[9][9];
-    private int[][] table2 = new int[9][9];
-    private int[][] table1 = new int[9][9];
+    private int[][] table;
+    private int[][] table2;
+    private int[][] table1;
     private int u = 1;
     private int numbersMissing=0;
 
     public Sudoku(int[][][] Table) {
+        table = new int[9][9];
+        table2 = new int[9][9];
+        table1 = new int[9][9];
         copy(table1, Table[0]);
         copy(table, Table[1]);
         copy(table2, Table[2]);
     }
 
-    public Sudoku(int x, int y, int value, int difficulty) {
+    public Sudoku(int difficulty) {
+        table = new int[9][9];
+        table2 = new int[9][9];
+        table1 = new int[9][9];
         this.numbersMissing = difficulty;
         for(int i = 0; i < 9; i++){
             for(int j = 0; j < 9; j++){
                 table[i][j] = 0;
             }
         }
-        table[x][y] = value;
+        ArrayList<Integer> permutation = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+        Collections.shuffle(permutation);
+        for(int i = 0; i < 9; i++){
+            table[0][i] = permutation.get(i);
+        }
         solve();
         copy(table2,table);
         removeElements(numbersMissing);
@@ -39,21 +52,7 @@ public class Sudoku {
             }
         }
     }
-    public Sudoku(int[][] Table) {
-        for(int i = 0; i < 9; i++){
-            for(int j = 0; j < 9; j++){
-                this.table[i][j] = Table[i][j];
-            }
-        }
-    }
 
-    public Sudoku(Sudoku sudoku) {
-        for(int i = 0; i < 9; i++){
-            for(int j = 0; j < 9; j++){
-                this.table[i][j] = sudoku.table[i][j];
-            }
-        }
-    }
 
     public boolean isChangeable(int x, int y) {
         if (table1[x][y] != 0)
@@ -199,7 +198,7 @@ public class Sudoku {
         copy(table2,table);
         copy(table1,table);
         u=2;
-        bkt(0,0);
+        bkt1(0,0);
         if(u==1){
             return true;
         } else {

@@ -58,17 +58,15 @@ public class SudokuActivity extends AppCompatActivity {
             Log.d(TAG, "init: was not created");
             int difficulty = 0;
             if (checkpointString.contains("Center")) {
-                difficulty = 35;
+                difficulty = 20;
             } else if (checkpointString.contains("Sector1") || checkpointString.contains("Sector3")) {
-                difficulty = 45;
+                difficulty = 30;
             } else if (checkpointString.contains("Sector2") || checkpointString.contains("Sector4")) {
-                difficulty = 55;
+                difficulty = 45;
             }
 
-            int i = Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
-            int j =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
-            int val =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
-            sudoku = new Sudoku(i, j, val, difficulty);
+
+            sudoku = new Sudoku(difficulty);
             MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
         }
 

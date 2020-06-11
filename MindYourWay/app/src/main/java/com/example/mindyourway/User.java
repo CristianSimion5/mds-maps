@@ -20,7 +20,7 @@ public class User {
     private String name;
     private Integer level;
     private HashMap<String,Integer> status;
-    private boolean admin = true;
+    private boolean admin = false;
     private HashMap<String,int[][][]> sudokuGames;
     private SharedPreferences.Editor editor;
     Gson g;

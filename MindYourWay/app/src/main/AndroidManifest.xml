@@ -2,16 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mindyourway">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
-        android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".Sector4MapActivity"></activity>
+        <activity android:name=".CreditsActivity" />
+        <activity android:name=".GuideActivity" />
+        <activity android:name=".Sector4MapActivity" />
         <activity android:name=".Sector2MapActivity" />
         <activity android:name=".SudokuActivity" />
         <activity android:name=".Sector3MapActivity" />
@@ -47,10 +54,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

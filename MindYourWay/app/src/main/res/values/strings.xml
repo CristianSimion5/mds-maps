@@ -3,9 +3,11 @@
     <string name="title_activity_maps">Map</string>
     <string name="search_hint">Enter Address, City or Zip Code</string>
     <string name="coordinates">Enter coordinates</string>
-    <string name="start_journey">"Start Your Journey   "</string>
+    <string name="start_journey">"Start Your Journey"</string>
     <string name="enter_nickname">Enter Nickname</string>
-    <string name="credits">"Credits          "</string>
-    <string name="guide">"Guide          "</string>
+    <string name="credits">"Credits"</string>
+    <string name="guide">"Guide"</string>
+    <string name="tutorial">Mind Your Way is a game where you visit checkpoints around the map.\nFrom the main city view different region can be seen, separated by outlines. Tap on a region to select it. At the start only the Center region is unlocked, but as you progress you will unlock more!\nOnce you press \"Go to this region\", you will see the checkpoints represented by [circles]. Select one that is enabled, but not reached yet, and press \"Go to location\". This will open a Google Maps screen where you can see [your position] and [your destination]. When you reach your destination, press [check button] to proceed to the next stage.\nNow you can play a minigame! After finishing it, the checkpoint will be marked as complete.\nComplete more checkpoints to earn experience and level up!</string>
+    <string name="creditsText">Mind Your Way was created by:\n\nGiugioiu Marian\nPasoi Stefan\nRotaru Iulian\nSimion Cristian</string>
 </resources>
 

@@ -7,9 +7,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -122,5 +119,16 @@ public class User {
 
     public int[][][] getSudokuGame(String name) {
         return sudokuGames.get(name);
+    }
+
+    public void levelUP(int x) {
+        this.level += x;
+        Log.d(TAG, "levelUP new value: " + this.level);
+        editor.putInt("level", this.level);
+        editor.apply();
+    }
+
+    public void reset() {
+        editor.clear();
     }
 }

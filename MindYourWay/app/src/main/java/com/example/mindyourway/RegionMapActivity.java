@@ -126,6 +126,9 @@ public class RegionMapActivity extends AppCompatActivity {
             Log.d(TAG, "initProgress: "+ string);
             regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));
         } else {
+            if(MainActivity.user.getStatus(tag) >= 2) {
+                button.setBackground(getResources().getDrawable(R.drawable.btncirclew));
+            }
             string+=String.valueOf(progress + 1);
             Log.d(TAG, "initProgress: "+ string);
             regionMap.setBackground(getResources().getDrawable(backgrounds.get(string)));

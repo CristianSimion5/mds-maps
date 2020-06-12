@@ -768,7 +768,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/BackButton"
+                android:id="@+id/buttonBack"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Back">
@@ -785,7 +785,7 @@
             </Button>
 
             <Button
-                android:id="@+id/CompleteGame"
+                android:id="@+id/buttonComplete"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="45dp"

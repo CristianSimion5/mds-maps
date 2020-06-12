@@ -31,7 +31,7 @@ public class CenterMapActivity extends RegionMapActivity {
         super.initGames();
         games.put("Center_1","sudoku");
         games.put("Center_2","sudoku");
-        games.put("Center_3","findWord");
+        games.put("Center_3","sudoku");//findWord
     }
 
     @Override

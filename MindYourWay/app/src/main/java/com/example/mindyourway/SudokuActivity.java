@@ -117,7 +117,7 @@ public class SudokuActivity extends AppCompatActivity {
             buttonsDigit[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!sudoku.isChangeable(xCurrent,yCurrent)) {
+                    if (sudoku.isChangeable(xCurrent,yCurrent)) {
                         int digit = Integer.parseInt(buttonsDigit[finalI].getText().toString());
                         buttonsSudoku[xCurrent][yCurrent].setText(String.valueOf(digit));
                         if (sudoku.checkElement(xCurrent, yCurrent, digit)) {

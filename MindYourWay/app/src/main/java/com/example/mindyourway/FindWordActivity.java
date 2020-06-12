@@ -2,10 +2,12 @@ package com.example.mindyourway;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.StyleSpan;
@@ -15,6 +17,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.graphics.PorterDuff;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -28,13 +33,17 @@ public class FindWordActivity extends AppCompatActivity {
 
     private static final String TAG = "FindWordActivity";
 
+    private FindWordEngine GameState;
+    private Handler mHandler = new Handler();
+
     private Button[][] buttonsMatrix = new Button[10][10];
     private Button[] buttonMesaj = new Button[10];
     private Button[] buttonCuvant = new Button[10];
     private Button Retry;
-    private Button Back;
-    private Button CompleteGame;
+    private Button buttonBack;
+    private Button buttonComplete;
 
+    private String checkpointString;
     private int Clickuri = 0; ///de asta nu-mi pasa ramane
     private int StartX = 0;   ///de asta nu-mi pasa ramane
     private int StartY = 0;   ///de asta nu-mi pasa ramane
@@ -44,9 +53,12 @@ public class FindWordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_find_word);
+        Intent intent = getIntent();
+        checkpointString = intent.getStringExtra(CenterMapActivity.regionExtra);
+        Log.d(TAG, "onCreate: "+checkpointString);
 
-        StartGame();
+        StartGame(false);
     }
 
     private void AfiseazaMesaj(String Mesaj) {
@@ -64,7 +76,7 @@ public class FindWordActivity extends AppCompatActivity {
 
     private void AfiseazaStatus(int StatusX,int StatusY) {
         String stringID = "CuvinteGasite";
-        int ID = MainActivity.this.getResources().getIdentifier(stringID, "id", MainActivity.this.getPackageName());
+        int ID = FindWordActivity.this.getResources().getIdentifier(stringID, "id", FindWordActivity.this.getPackageName());
         final TextView Stare = (TextView) findViewById(ID);
         Stare.setText("Status: "+String.valueOf(StatusX)+"/"+String.valueOf(StatusY));
     }
@@ -72,7 +84,7 @@ public class FindWordActivity extends AppCompatActivity {
 
     private void AfiseazaTimp(int Minute,int Secunde) {
         String stringID = "Timer";
-        int ID = MainActivity.this.getResources().getIdentifier(stringID, "id", FindWordActivity.this.getPackageName());
+        int ID = FindWordActivity.this.getResources().getIdentifier(stringID, "id", FindWordActivity.this.getPackageName());
         final TextView Stare = (TextView) findViewById(ID);
         String sec = "";
         if(Secunde > 9) {
@@ -136,36 +148,78 @@ public class FindWordActivity extends AppCompatActivity {
                 500);
     }
 
-    private void StartGame() {
-
-        ArrayList<Integer> ListaOrdDif = new ArrayList<Integer>();
-        ListaOrdDif.add(0);
-        ListaOrdDif.add(1);
-        ListaOrdDif.add(2);
-        Collections.shuffle(ListaOrdDif);
-        int dif = ListaOrdDif.get(0);
-        final FindWordEngine GameState = new FindWordEngine(dif);
-
-        if(GameState.getDificultate() == 0) {
-            GameState.SetMinute(7);
-            GameState.SetSecunde(0);
-            GameState.SetStatusX(0);
-            GameState.SetStatusY(6);
+    private Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            MainActivity.user.setFindWordGames(checkpointString, GameState.getGame());
+            mHandler.postDelayed(this, 3000);
+            Log.d(TAG, "run: saving...");
         }
-        else if(GameState.getDificultate() == 1) {
-            GameState.SetMinute(6);
-            GameState.SetSecunde(0);
-            GameState.SetStatusX(0);
-            GameState.SetStatusY(7);
-        }
-        else if(GameState.getDificultate() == 2) {
-            GameState.SetMinute(5);
-            GameState.SetSecunde(30);
-            GameState.SetStatusX(0);
-            GameState.SetStatusY(8);
+    };
+
+    private void StartGame(boolean pass) {
+
+        buttonBack = (Button) findViewById(R.id.buttonBack);
+        buttonComplete = (Button) findViewById(R.id.buttonComplete) ;
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHandler.removeCallbacks(mRunnable);
+                if(checkpointString.contains("Center")) {
+                    Intent intent = new Intent(FindWordActivity.this, CenterMapActivity.class);
+                    startActivity(intent);
+                }
+                else if(checkpointString.contains("Sector1")) {
+                    Intent intent = new Intent(FindWordActivity.this, Sector1MapActivity.class);
+                    startActivity(intent);
+                }
+                else if(checkpointString.contains("Sector2")) {
+                    Intent intent = new Intent(FindWordActivity.this, Sector2MapActivity.class);
+                    startActivity(intent);
+                }
+                else if(checkpointString.contains("Sector3")) {
+                    Intent intent = new Intent(FindWordActivity.this, Sector3MapActivity.class);
+                    startActivity(intent);
+                }
+                else if(checkpointString.contains("Sector4")) {
+                    Intent intent = new Intent(FindWordActivity.this, Sector4MapActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        buttonComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(GameState.isCompleted() || MainActivity.user.isAdmin()){
+                    if(MainActivity.user.getStatus(checkpointString)==3)
+                        MainActivity.user.incrementStatus(checkpointString);
+                    buttonBack.performClick();
+
+                } else {
+                    Toast.makeText(FindWordActivity.this, "Incorrect solution", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        if(MainActivity.user.checkFindWordGame(checkpointString) && !pass){
+            GameState = new FindWordEngine(MainActivity.user.getFindWordGames(checkpointString));
+            Log.d(TAG, "init: was created");
+        } else {
+            Log.d(TAG, "init: was not created");
+            int difficulty = 0;
+            if (checkpointString.contains("Center")) {
+                difficulty = 0;
+            } else if (checkpointString.contains("Sector1") || checkpointString.contains("Sector3")) {
+                difficulty = 1;
+            } else if (checkpointString.contains("Sector2") || checkpointString.contains("Sector4")) {
+                difficulty = 2;
+            }
+            GameState = new FindWordEngine(difficulty);
+            MainActivity.user.setFindWordGames(checkpointString, GameState.getGame());
         }
 
-        GameState.generateListaCuvinteJoc();
+        mRunnable.run();
 
         for(int i = 1; i <= 9; ++i) {
             String stringID = "LiteraCuvant" + String.valueOf(i);
@@ -266,7 +320,9 @@ public class FindWordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(GameState.getStareJoc() == 1) {
-                    StartGame();
+                    StartGame(true);
+                } else {
+                    Toast.makeText(FindWordActivity.this, "You can retry only if you lose", Toast.LENGTH_SHORT).show();
                 }
             }
         });

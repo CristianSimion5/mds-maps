@@ -55,7 +55,8 @@ public class Sudoku {
 
 
     public boolean isChangeable(int x, int y) {
-        if (table1[x][y] != 0)
+
+        if (table1[x][y] == 0)
             return true;
         return false;
     }

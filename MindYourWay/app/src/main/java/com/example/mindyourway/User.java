@@ -22,6 +22,7 @@ public class User {
     private HashMap<String,Integer> status;
     private boolean admin = false;
     private HashMap<String,int[][][]> sudokuGames;
+    private HashMap<String, FindWordEngine> findWordGames;
     private SharedPreferences.Editor editor;
     Gson g;
 
@@ -38,6 +39,7 @@ public class User {
 
         this.status = new HashMap<>();
         this.sudokuGames = new HashMap<>();
+        this.findWordGames = new HashMap<>();
 
         ArrayList<String> sectorList = new ArrayList<>(Arrays.asList(
                 "Center", "Sector1", "Sector2", "Sector3", "Sector4", "Sector5", "Sector6"));
@@ -51,6 +53,11 @@ public class User {
                 else
                     status.put(keyName, sharedPreferences.getInt(keyName + "Status", 1));
 
+                if (sharedPreferences.contains(keyName + "Sudoku")) {
+                    String gameState = sharedPreferences.getString(keyName + "Sudoku", "");
+                    Log.d(TAG, "Sudoku game found for region " +  keyName + ": " + gameState);
+                    this.sudokuGames.put(keyName, g.fromJson(gameState, int[][][].class));
+                }
                 if (sharedPreferences.contains(keyName + "Sudoku")) {
                     String gameState = sharedPreferences.getString(keyName + "Sudoku", "");
                     Log.d(TAG, "Sudoku game found for region " +  keyName + ": " + gameState);
@@ -122,5 +129,17 @@ public class User {
 
     public int[][][] getSudokuGame(String name) {
         return sudokuGames.get(name);
+    }
+
+    public void setFindWordGames(String name, FindWordEngine game) {
+        findWordGames.put(name, game);
+    }
+
+    public boolean checkFindWordGame(String name) {
+        return findWordGames.containsKey(name);
+    }
+
+    public FindWordEngine getFindWordGames(String name) {
+        return findWordGames.get(name);
     }
 }

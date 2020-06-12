@@ -23,6 +23,7 @@
         <activity android:name=".Sector3MapActivity" />
         <activity android:name=".Sector1MapActivity" />
         <activity android:name=".CenterMapActivity" />
+        <activity android:name=".ColorLinkActivity" />
         <activity android:name=".BucharestMapActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

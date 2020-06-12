@@ -193,8 +193,10 @@ public class FindWordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(GameState.isCompleted() || MainActivity.user.isAdmin()){
-                    if(MainActivity.user.getStatus(checkpointString)==3)
+                    if(MainActivity.user.getStatus(checkpointString)==3) {
                         MainActivity.user.incrementStatus(checkpointString);
+                        MainActivity.user.levelUP(2);
+                    }
                     buttonBack.performClick();
 
                 } else {

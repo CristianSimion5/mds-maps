@@ -32,7 +32,7 @@ public class User {
         Log.d(TAG, "Loading data from device...");
         this.name = sharedPreferences.getString("name", "");
         Log.d(TAG, "Name: " + this.name);
-        this.level = sharedPreferences.getInt("level", 1);
+        this.level = sharedPreferences.getInt("level", 0);
         Log.d(TAG, "Level: " + this.level);
 
         this.status = new HashMap<>();

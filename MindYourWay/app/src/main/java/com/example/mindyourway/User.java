@@ -57,10 +57,15 @@ public class User {
                     Log.d(TAG, "Sudoku game found for region " +  keyName + ": " + gameState);
                     this.sudokuGames.put(keyName, g.fromJson(gameState, int[][][].class));
                 }
-                if (sharedPreferences.contains(keyName + "ColorLink")) {
+                else if (sharedPreferences.contains(keyName + "ColorLink")) {
                     String gameState = sharedPreferences.getString(keyName + "ColorLink", "");
                     Log.d(TAG, "ColorLink game found for region " +  keyName + ": " + gameState);
                     this.colorlinkGames.put(keyName, g.fromJson(gameState, int[][].class));
+                }
+                else if (sharedPreferences.contains(keyName + "FindWord")) {
+                    String gameState = sharedPreferences.getString(keyName + "FindWord", "");
+                    Log.d(TAG, "FindWord game found for region " +  keyName + ": " + gameState);
+                    this.findWordGames.put(keyName, g.fromJson(gameState, FindWordEngine.class));
                 }
             }
         }
@@ -127,6 +132,11 @@ public class User {
 
     public void setFindWordGames(String name, FindWordEngine game) {
         findWordGames.put(name, game);
+
+        String object = g.toJson(game);
+        Log.d(TAG, "setFindWordGames for region " + name + ": " + object);
+        editor.putString(name + "FindWord", object);
+        editor.apply();
     }
 
     public boolean checkFindWordGame(String name) {
@@ -137,7 +147,7 @@ public class User {
         return findWordGames.get(name);
     }
 
-    public void setColorLinkGame (String name,  int[][] Table) {
+    public void setColorLinkGame (String name, int[][] Table) {
         colorlinkGames.put(name,Table);
 
         String array = g.toJson(Table);

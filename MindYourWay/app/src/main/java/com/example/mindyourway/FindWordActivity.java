@@ -195,7 +195,7 @@ public class FindWordActivity extends AppCompatActivity {
                 if(GameState.isCompleted() || MainActivity.user.isAdmin()){
                     if(MainActivity.user.getStatus(checkpointString)==3) {
                         MainActivity.user.incrementStatus(checkpointString);
-                        MainActivity.user.levelUP(2);
+                        MainActivity.user.levelUp(2);
                     }
                     buttonBack.performClick();
 

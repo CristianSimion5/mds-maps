@@ -17,7 +17,7 @@ public class User {
     private String name;
     private Integer level;
     private HashMap<String,Integer> status;
-    private boolean admin = false;
+    private boolean admin = true;
     private HashMap<String,int[][][]> sudokuGames;
     private HashMap<String, FindWordEngine> findWordGames;
     private HashMap<String,int[][]> colorlinkGames;
@@ -57,29 +57,13 @@ public class User {
                     Log.d(TAG, "Sudoku game found for region " +  keyName + ": " + gameState);
                     this.sudokuGames.put(keyName, g.fromJson(gameState, int[][][].class));
                 }
-                else if (sharedPreferences.contains(keyName + "ColorLink")) {
+                if (sharedPreferences.contains(keyName + "ColorLink")) {
                     String gameState = sharedPreferences.getString(keyName + "ColorLink", "");
                     Log.d(TAG, "ColorLink game found for region " +  keyName + ": " + gameState);
                     this.colorlinkGames.put(keyName, g.fromJson(gameState, int[][].class));
                 }
             }
         }
-//        status.put("Center_1", 2);
-//        status.put("Center_2", 1);
-//        status.put("Center_3", 1);
-//        status.put("Sector1_1", 1);
-//        status.put("Sector1_2", 1);
-//        status.put("Sector1_3", 1);
-//        status.put("Sector3_1", 1);
-//        status.put("Sector3_2", 1);
-//        status.put("Sector3_3", 1);
-//        status.put("Sector2_1", 1);
-//        status.put("Sector2_2", 1);
-//        status.put("Sector2_3", 1);
-//        status.put("Sector4_1", 1);
-//        status.put("Sector4_2", 1);
-//        status.put("Sector4_3", 1);
-
     }
 
     public boolean isAdmin() {
@@ -130,7 +114,7 @@ public class User {
         return sudokuGames.get(name);
     }
 
-    public void levelUP(int x) {
+    public void levelUp(int x) {
         this.level += x;
         Log.d(TAG, "levelUP new value: " + this.level);
         editor.putInt("level", this.level);
@@ -140,6 +124,7 @@ public class User {
     public void reset() {
         editor.clear();
     }
+
     public void setFindWordGames(String name, FindWordEngine game) {
         findWordGames.put(name, game);
     }

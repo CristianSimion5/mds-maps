@@ -29,8 +29,7 @@ public class FindWordEngine {
     private int StareJoc;
 
     ///Constructori
-
-    public FindWordEngine(char[][] MatriceLitereNoua) {
+    public FindWordEngine() {
         Minute = 0;
         Secunde = 0;
         StatusX = 0;
@@ -42,29 +41,11 @@ public class FindWordEngine {
         StareJoc = 0;
         for(int i = 1; i <= 9 ;++i) {
             for (int j = 1; j <= 9; ++j) {
-                MatriceLitere[i][j] = MatriceLitereNoua[i][j];
+                MatriceLitere[i][j] = 0;
             }
         }
     }
 
-    public FindWordEngine(char[][] MatriceLitereNoua, int dificultateNoua) {
-        Minute = 0;
-        Secunde = 0;
-        StatusX = 0;
-        StatusY = 0;
-        ListaCuvinteJoc = new ArrayList<String>();
-        MesajJoc = " FIND WORD";
-        MatriceLitere = new char[10][10];
-        StareJoc = 0;
-        MatriceLitere = new char[10][10];
-        for(int i = 1; i <= 9 ;++i) {
-            for (int j = 1; j <= 9; ++j) {
-                MatriceLitere[i][j] = MatriceLitereNoua[i][j];
-            }
-        }
-
-        dificultate = dificultateNoua;
-    }
 
     ///de pus FindWordEngine(FindWordEngine X)
     public FindWordEngine(FindWordEngine X) {
@@ -92,6 +73,7 @@ public class FindWordEngine {
         Secunde = 0;
         StatusX = 0;
         StatusY = 0;
+        dificultate = dificultateNoua;
         ListaCuvinteJoc = new ArrayList<String>();
         MesajJoc = " FIND WORD";
         StareJoc = 0;
@@ -102,7 +84,29 @@ public class FindWordEngine {
             }
         }
 
-        dificultate = dificultateNoua;
+        if(getDificultate() == 0) {
+            SetMinute(1);
+            SetSecunde(0);
+            SetStatusX(0);
+            SetStatusY(6);
+        }
+        else if(getDificultate() == 1) {
+            SetMinute(6);
+            SetSecunde(0);
+            SetStatusX(0);
+            SetStatusY(7);
+        }
+        else if(getDificultate() == 2) {
+            SetMinute(5);
+            SetSecunde(30);
+            SetStatusX(0);
+            SetStatusY(8);
+        }
+        generateListaCuvinteJoc();
+    }
+
+    public boolean isCompleted() {
+        return StareJoc == 2;
     }
 
     ///si asta e scrisa e pentru un obiect

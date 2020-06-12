@@ -1,5 +1,6 @@
 package com.example.mindyourway;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -168,8 +169,16 @@ public class RegionMapActivity extends AppCompatActivity {
                         intent.putExtra(regionExtra, tag);
                         startActivity(intent);
                     }
+
+                    if (game.equals("findWord")) {
+                        Intent intent = new Intent(context, FindWordActivity.class);
+                        intent.putExtra(regionExtra, tag);
+                        startActivity(intent);
+                    }
+
                     if (game.equals("colorlink")) {
                         Intent intent = new Intent(context, ColorLinkActivity.class);
+
                         intent.putExtra(regionExtra, tag);
                         startActivity(intent);
                     }

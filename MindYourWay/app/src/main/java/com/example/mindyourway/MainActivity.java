@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
         btnMap = (Button) findViewById(R.id.btnMap);
         textName = (TextView) findViewById(R.id.textName);
         textName.setText(user.getName());
-
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

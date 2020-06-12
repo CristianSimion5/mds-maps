@@ -17,8 +17,10 @@ public class User {
     private String name;
     private Integer level;
     private HashMap<String,Integer> status;
-    private boolean admin = true;
+    private boolean admin = false;
     private HashMap<String,int[][][]> sudokuGames;
+    private HashMap<String, FindWordEngine> findWordGames;
+    private HashMap<String,int[][]> colorlinkGames;
     private SharedPreferences.Editor editor;
     Gson g;
 
@@ -35,6 +37,8 @@ public class User {
 
         this.status = new HashMap<>();
         this.sudokuGames = new HashMap<>();
+        this.findWordGames = new HashMap<>();
+        this.colorlinkGames = new HashMap<>();
 
         ArrayList<String> sectorList = new ArrayList<>(Arrays.asList(
                 "Center", "Sector1", "Sector2", "Sector3", "Sector4", "Sector5", "Sector6"));
@@ -52,6 +56,11 @@ public class User {
                     String gameState = sharedPreferences.getString(keyName + "Sudoku", "");
                     Log.d(TAG, "Sudoku game found for region " +  keyName + ": " + gameState);
                     this.sudokuGames.put(keyName, g.fromJson(gameState, int[][][].class));
+                }
+                else if (sharedPreferences.contains(keyName + "ColorLink")) {
+                    String gameState = sharedPreferences.getString(keyName + "ColorLink", "");
+                    Log.d(TAG, "ColorLink game found for region " +  keyName + ": " + gameState);
+                    this.colorlinkGames.put(keyName, g.fromJson(gameState, int[][].class));
                 }
             }
         }
@@ -131,4 +140,33 @@ public class User {
     public void reset() {
         editor.clear();
     }
+    public void setFindWordGames(String name, FindWordEngine game) {
+        findWordGames.put(name, game);
+    }
+
+    public boolean checkFindWordGame(String name) {
+        return findWordGames.containsKey(name);
+    }
+
+    public FindWordEngine getFindWordGames(String name) {
+        return findWordGames.get(name);
+    }
+
+    public void setColorLinkGame (String name,  int[][] Table) {
+        colorlinkGames.put(name,Table);
+
+        String array = g.toJson(Table);
+        Log.d(TAG, "setColorLinkGame for region " + name + ": " + array);
+        editor.putString(name + "ColorLink", array);
+        editor.apply();
+    }
+
+    public boolean checkColorLinkGame(String name) {
+        return colorlinkGames.containsKey(name);
+    }
+
+    public int[][] getColorLinkGame(String name) {
+        return colorlinkGames.get(name);
+    }
+
 }

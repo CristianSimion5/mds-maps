@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FindWordActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#929292"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#dacece"
+                android:padding="10dp"
+                android:text="0:00"
+                android:textAlignment="center"
+                android:textSize="22sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/CuvinteGasite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="178dp"
+                android:padding="10dp"
+                android:background="#dacece"
+                android:text="Status: x/y"
+                android:textAlignment="center"
+                android:textSize="22sp">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#565472"
+            android:shrinkColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/LiteraCuvant1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraCuvant9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9">
+
+                </Button>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/LiteraMesaj1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/LiteraMesaj9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9">
+
+                </Button>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="#565472"
+            android:shrinkColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11" />
+
+                <Button
+                    android:id="@+id/buttonFindWord12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12" />
+
+                <Button
+                    android:id="@+id/buttonFindWord13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="13" />
+
+                <Button
+                    android:id="@+id/buttonFindWord14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="14" />
+
+                <Button
+                    android:id="@+id/buttonFindWord15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="15" />
+
+                <Button
+                    android:id="@+id/buttonFindWord16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="16" />
+
+                <Button
+                    android:id="@+id/buttonFindWord17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="17" />
+
+                <Button
+                    android:id="@+id/buttonFindWord18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="18" />
+
+                <Button
+                    android:id="@+id/buttonFindWord19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="19" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="21" />
+
+                <Button
+                    android:id="@+id/buttonFindWord22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="22" />
+
+                <Button
+                    android:id="@+id/buttonFindWord23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="23" />
+
+                <Button
+                    android:id="@+id/buttonFindWord24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="24" />
+
+                <Button
+                    android:id="@+id/buttonFindWord25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="25" />
+
+                <Button
+                    android:id="@+id/buttonFindWord26"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="26" />
+
+                <Button
+                    android:id="@+id/buttonFindWord27"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="27" />
+
+                <Button
+                    android:id="@+id/buttonFindWord28"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="28" />
+
+                <Button
+                    android:id="@+id/buttonFindWord29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="29" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord31"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="31" />
+
+                <Button
+                    android:id="@+id/buttonFindWord32"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="32" />
+
+                <Button
+                    android:id="@+id/buttonFindWord33"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="33" />
+
+                <Button
+                    android:id="@+id/buttonFindWord34"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="34" />
+
+                <Button
+                    android:id="@+id/buttonFindWord35"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="35" />
+
+                <Button
+                    android:id="@+id/buttonFindWord36"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="36" />
+
+                <Button
+                    android:id="@+id/buttonFindWord37"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="37" />
+
+                <Button
+                    android:id="@+id/buttonFindWord38"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="38" />
+
+                <Button
+                    android:id="@+id/buttonFindWord39"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="39" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord41"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="41" />
+
+                <Button
+                    android:id="@+id/buttonFindWord42"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="42" />
+
+                <Button
+                    android:id="@+id/buttonFindWord43"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="43" />
+
+                <Button
+                    android:id="@+id/buttonFindWord44"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="44" />
+
+                <Button
+                    android:id="@+id/buttonFindWord45"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="45" />
+
+                <Button
+                    android:id="@+id/buttonFindWord46"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="46" />
+
+                <Button
+                    android:id="@+id/buttonFindWord47"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="47" />
+
+                <Button
+                    android:id="@+id/buttonFindWord48"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="48" />
+
+                <Button
+                    android:id="@+id/buttonFindWord49"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="49" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord51"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="51" />
+
+                <Button
+                    android:id="@+id/buttonFindWord52"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="52" />
+
+                <Button
+                    android:id="@+id/buttonFindWord53"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="53" />
+
+                <Button
+                    android:id="@+id/buttonFindWord54"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="54" />
+
+                <Button
+                    android:id="@+id/buttonFindWord55"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="55" />
+
+                <Button
+                    android:id="@+id/buttonFindWord56"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="56" />
+
+                <Button
+                    android:id="@+id/buttonFindWord57"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="57" />
+
+                <Button
+                    android:id="@+id/buttonFindWord58"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="58" />
+
+                <Button
+                    android:id="@+id/buttonFindWord59"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="59" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord61"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="61" />
+
+                <Button
+                    android:id="@+id/buttonFindWord62"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="62" />
+
+                <Button
+                    android:id="@+id/buttonFindWord63"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="63" />
+
+                <Button
+                    android:id="@+id/buttonFindWord64"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="64" />
+
+                <Button
+                    android:id="@+id/buttonFindWord65"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="65" />
+
+                <Button
+                    android:id="@+id/buttonFindWord66"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="66" />
+
+                <Button
+                    android:id="@+id/buttonFindWord67"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="67" />
+
+                <Button
+                    android:id="@+id/buttonFindWord68"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="68" />
+
+                <Button
+                    android:id="@+id/buttonFindWord69"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="69" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord71"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="71" />
+
+                <Button
+                    android:id="@+id/buttonFindWord72"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="72" />
+
+                <Button
+                    android:id="@+id/buttonFindWord73"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="73" />
+
+                <Button
+                    android:id="@+id/buttonFindWord74"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="74" />
+
+                <Button
+                    android:id="@+id/buttonFindWord75"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="75" />
+
+                <Button
+                    android:id="@+id/buttonFindWord76"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="76" />
+
+                <Button
+                    android:id="@+id/buttonFindWord77"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="77" />
+
+                <Button
+                    android:id="@+id/buttonFindWord78"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="78" />
+
+                <Button
+                    android:id="@+id/buttonFindWord79"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="79" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord81"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="81" />
+
+                <Button
+                    android:id="@+id/buttonFindWord82"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="82" />
+
+                <Button
+                    android:id="@+id/buttonFindWord83"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="83" />
+
+                <Button
+                    android:id="@+id/buttonFindWord84"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="84" />
+
+                <Button
+                    android:id="@+id/buttonFindWord85"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="85" />
+
+                <Button
+                    android:id="@+id/buttonFindWord86"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="86" />
+
+                <Button
+                    android:id="@+id/buttonFindWord87"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="87" />
+
+                <Button
+                    android:id="@+id/buttonFindWord88"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="88" />
+
+                <Button
+                    android:id="@+id/buttonFindWord89"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="89" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonFindWord91"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="91" />
+
+                <Button
+                    android:id="@+id/buttonFindWord92"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="92" />
+
+                <Button
+                    android:id="@+id/buttonFindWord93"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="93" />
+
+                <Button
+                    android:id="@+id/buttonFindWord94"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="94" />
+
+                <Button
+                    android:id="@+id/buttonFindWord95"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="95" />
+
+                <Button
+                    android:id="@+id/buttonFindWord96"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="96" />
+
+                <Button
+                    android:id="@+id/buttonFindWord97"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="97" />
+
+                <Button
+                    android:id="@+id/buttonFindWord98"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="98" />
+
+                <Button
+                    android:id="@+id/buttonFindWord99"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="99" />
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Back">
+
+            </Button>
+
+            <Button
+                android:id="@+id/Retry"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="45dp"
+                android:text="Retry">
+
+            </Button>
+
+            <Button
+                android:id="@+id/buttonComplete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="45dp"
+                android:text="Complete Game">
+
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

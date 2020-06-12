@@ -18,12 +18,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CreditsActivity" />
         <activity android:name=".GuideActivity" />
+        <activity android:name=".FindWordActivity"></activity>
         <activity android:name=".Sector4MapActivity" />
         <activity android:name=".Sector2MapActivity" />
         <activity android:name=".SudokuActivity" />
         <activity android:name=".Sector3MapActivity" />
         <activity android:name=".Sector1MapActivity" />
         <activity android:name=".CenterMapActivity" />
+        <activity android:name=".ColorLinkActivity" />
         <activity android:name=".BucharestMapActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

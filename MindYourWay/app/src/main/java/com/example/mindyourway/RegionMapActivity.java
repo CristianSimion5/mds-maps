@@ -1,5 +1,6 @@
 package com.example.mindyourway;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -161,9 +162,23 @@ public class RegionMapActivity extends AppCompatActivity {
         buttonPlayGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ///aici trebuie sa completez
                 if(MainActivity.user.getStatus(tag)>=3) {
                     if (game.equals("sudoku")) {
                         Intent intent = new Intent(context, SudokuActivity.class);
+                        intent.putExtra(regionExtra, tag);
+                        startActivity(intent);
+                    }
+
+                    if (game.equals("findWord")) {
+                        Intent intent = new Intent(context, FindWordActivity.class);
+                        intent.putExtra(regionExtra, tag);
+                        startActivity(intent);
+                    }
+
+                    if (game.equals("colorlink")) {
+                        Intent intent = new Intent(context, ColorLinkActivity.class);
+
                         intent.putExtra(regionExtra, tag);
                         startActivity(intent);
                     }

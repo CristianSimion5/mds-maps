@@ -167,6 +167,11 @@ public class RegionMapActivity extends AppCompatActivity {
                         intent.putExtra(regionExtra, tag);
                         startActivity(intent);
                     }
+                    if (game.equals("colorlink")) {
+                        Intent intent = new Intent(context, ColorLinkActivity.class);
+                        intent.putExtra(regionExtra, tag);
+                        startActivity(intent);
+                    }
                 } else {
                     Toast.makeText(context, "You can't play the game yet", Toast.LENGTH_SHORT).show();
                 }

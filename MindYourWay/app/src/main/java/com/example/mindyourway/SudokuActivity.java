@@ -48,7 +48,7 @@ public class SudokuActivity extends AppCompatActivity {
 
     private void init() {
         buttonComplete = (Button) findViewById(R.id.buttonComplete);
-        buttonEmpty = (Button) findViewById(R.id.buttonEmpty) ;
+        buttonEmpty = (Button) findViewById(R.id.buttonEmpty);
         buttonBack = (Button) findViewById(R.id.buttonBack);
         if(MainActivity.user.checkSudokuGame(checkpointString)){
             sudoku = new Sudoku(MainActivity.user.getSudokuGame(checkpointString));

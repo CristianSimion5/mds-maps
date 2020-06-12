@@ -177,8 +177,10 @@ public class SudokuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(sudoku.checkIfSolved() || MainActivity.user.isAdmin()){
-                    if(MainActivity.user.getStatus(checkpointString)==3)
+                    if(MainActivity.user.getStatus(checkpointString)==3) {
                         MainActivity.user.incrementStatus(checkpointString);
+                        MainActivity.user.levelUP(1);
+                    }
                     buttonBack.performClick();
 
                 } else {

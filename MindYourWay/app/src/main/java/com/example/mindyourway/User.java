@@ -20,7 +20,7 @@ public class User {
     private String name;
     private Integer level;
     private HashMap<String,Integer> status;
-    private boolean admin = false;
+    private boolean admin = true;
     private HashMap<String,int[][][]> sudokuGames;
     private HashMap<String, FindWordEngine> findWordGames;
     private HashMap<String,int[][]> colorlinkGames;
@@ -35,7 +35,7 @@ public class User {
         Log.d(TAG, "Loading data from device...");
         this.name = sharedPreferences.getString("name", "");
         Log.d(TAG, "Name: " + this.name);
-        this.level = sharedPreferences.getInt("level", 1);
+        this.level = sharedPreferences.getInt("level", 0);
         Log.d(TAG, "Level: " + this.level);
 
         this.status = new HashMap<>();
@@ -163,5 +163,7 @@ public class User {
         return colorlinkGames.get(name);
     }
 
+    public void levelUP(int x) {
 
+    }
 }

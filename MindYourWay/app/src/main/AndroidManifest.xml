@@ -16,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CreditsActivity" />
+        <activity android:name=".GuideActivity" />
         <activity android:name=".FindWordActivity"></activity>
         <activity android:name=".Sector4MapActivity" />
         <activity android:name=".Sector2MapActivity" />

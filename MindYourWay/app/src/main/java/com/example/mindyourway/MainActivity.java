@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     //widgets
     private Button btnMap;
     private TextView textName;
+    private Button btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,32 @@ public class MainActivity extends AppCompatActivity {
                     //intent.putExtra(EXTRA_TEXT, coordString);
                     startActivity(intent);
                 }
+            }
+        });
+
+        Button btnGuide = (Button) findViewById(R.id.btnGuide);
+        btnGuide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GuideActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnCredits = (Button) findViewById(R.id.btnCredits);
+        btnCredits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CreditsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnReset = (Button) findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                user.reset();
             }
         });
     }

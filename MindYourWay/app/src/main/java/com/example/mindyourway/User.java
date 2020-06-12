@@ -7,9 +7,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,30 +57,18 @@ public class User {
                     Log.d(TAG, "Sudoku game found for region " +  keyName + ": " + gameState);
                     this.sudokuGames.put(keyName, g.fromJson(gameState, int[][][].class));
                 }
-
                 else if (sharedPreferences.contains(keyName + "ColorLink")) {
                     String gameState = sharedPreferences.getString(keyName + "ColorLink", "");
                     Log.d(TAG, "ColorLink game found for region " +  keyName + ": " + gameState);
                     this.colorlinkGames.put(keyName, g.fromJson(gameState, int[][].class));
                 }
+                else if (sharedPreferences.contains(keyName + "FindWord")) {
+                    String gameState = sharedPreferences.getString(keyName + "FindWord", "");
+                    Log.d(TAG, "FindWord game found for region " +  keyName + ": " + gameState);
+                    this.findWordGames.put(keyName, g.fromJson(gameState, FindWordEngine.class));
+                }
             }
         }
-//        status.put("Center_1", 2);
-//        status.put("Center_2", 1);
-//        status.put("Center_3", 1);
-//        status.put("Sector1_1", 1);
-//        status.put("Sector1_2", 1);
-//        status.put("Sector1_3", 1);
-//        status.put("Sector3_1", 1);
-//        status.put("Sector3_2", 1);
-//        status.put("Sector3_3", 1);
-//        status.put("Sector2_1", 1);
-//        status.put("Sector2_2", 1);
-//        status.put("Sector2_3", 1);
-//        status.put("Sector4_1", 1);
-//        status.put("Sector4_2", 1);
-//        status.put("Sector4_3", 1);
-
     }
 
     public boolean isAdmin() {
@@ -134,8 +119,24 @@ public class User {
         return sudokuGames.get(name);
     }
 
+    public void levelUp(int x) {
+        this.level += x;
+        Log.d(TAG, "levelUP new value: " + this.level);
+        editor.putInt("level", this.level);
+        editor.apply();
+    }
+
+    public void reset() {
+        editor.clear();
+    }
+
     public void setFindWordGames(String name, FindWordEngine game) {
         findWordGames.put(name, game);
+
+        String object = g.toJson(game);
+        Log.d(TAG, "setFindWordGames for region " + name + ": " + object);
+        editor.putString(name + "FindWord", object);
+        editor.apply();
     }
 
     public boolean checkFindWordGame(String name) {
@@ -146,7 +147,7 @@ public class User {
         return findWordGames.get(name);
     }
 
-    public void setColorLinkGame (String name,  int[][] Table) {
+    public void setColorLinkGame (String name, int[][] Table) {
         colorlinkGames.put(name,Table);
 
         String array = g.toJson(Table);
@@ -163,7 +164,4 @@ public class User {
         return colorlinkGames.get(name);
     }
 
-    public void levelUP(int x) {
-
-    }
 }

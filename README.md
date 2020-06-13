@@ -1,7 +1,7 @@
 # Mind your way
 Proiect realizat pentru disciplina "Metode de dezvoltare software" din cadrul Facultății de Matematică și Informatică, Universitatea București.
 
-Cerințele din barem sunt descrise în [wiki](wiki).
+Cerințele din barem sunt descrise în [wiki](https://github.com/CristianSimion5/mds-maps/wiki).
 
 ## Membrii echipei:
 - **[Giugioiu Marian](https://github.com/MarianGiugioiu)**

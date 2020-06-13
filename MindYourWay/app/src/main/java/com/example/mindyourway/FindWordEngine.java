@@ -136,7 +136,7 @@ public class FindWordEngine {
     }
 
     public void IncreaseStatusX() {
-        StatusX ++;
+            StatusX ++;
     }
 
     public void SetMesajJoc(String MesajJocNoua) {
@@ -627,6 +627,8 @@ public class FindWordEngine {
     }
 
     public String getCuvantX(int X) {
+        if(StatusX == StatusY)
+            return "          ";
         return String.valueOf(ListaCuvinteJoc.get(X));
     }
 

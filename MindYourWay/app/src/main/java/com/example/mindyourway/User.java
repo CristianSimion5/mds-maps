@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,7 +26,8 @@ public class User {
     Gson g;
 
     public User(Activity context){
-        SharedPreferences sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences =
+                context.getSharedPreferences("data", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         g = new Gson();
 
@@ -50,21 +50,18 @@ public class User {
                 String keyName = sector + '_' + i;
                 if (keyName.equals("Center_1")) {
                     status.put(keyName, sharedPreferences.getInt(keyName + "Status", 2));
-                }
-                else
+                } else {
                     status.put(keyName, sharedPreferences.getInt(keyName + "Status", 1));
-
+                }
                 if (sharedPreferences.contains(keyName + "Sudoku")) {
                     String gameState = sharedPreferences.getString(keyName + "Sudoku", "");
                     Log.d(TAG, "Sudoku game found for region " +  keyName + ": " + gameState);
                     this.sudokuGames.put(keyName, g.fromJson(gameState, int[][][].class));
-                }
-                else if (sharedPreferences.contains(keyName + "ColorLink")) {
+                } else if (sharedPreferences.contains(keyName + "ColorLink")) {
                     String gameState = sharedPreferences.getString(keyName + "ColorLink", "");
                     Log.d(TAG, "ColorLink game found for region " +  keyName + ": " + gameState);
                     this.colorlinkGames.put(keyName, g.fromJson(gameState, int[][].class));
-                }
-                else if (sharedPreferences.contains(keyName + "FindWord")) {
+                } else if (sharedPreferences.contains(keyName + "FindWord")) {
                     String gameState = sharedPreferences.getString(keyName + "FindWord", "");
                     Log.d(TAG, "FindWord game found for region " +  keyName + ": " + gameState);
                     this.findWordGames.put(keyName, g.fromJson(gameState, FindWordEngine.class));

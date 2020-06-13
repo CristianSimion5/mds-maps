@@ -251,7 +251,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private boolean checkIfReachedDestination() {
-        if(MainActivity.user.isAdmin()) {
+        if(MainActivity.user.isAdminMap()) {
             return true;
         } else {
             getDeviceLocation(false);

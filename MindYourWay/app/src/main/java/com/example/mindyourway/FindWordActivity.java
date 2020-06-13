@@ -34,7 +34,7 @@ public class FindWordActivity extends AppCompatActivity {
     private static final String TAG = "FindWordActivity";
 
     private FindWordEngine GameState;
-    private Handler mHandler = new Handler();
+    private boolean isPaused = false;
 
     private Button[][] buttonsMatrix = new Button[10][10];
     private Button[] buttonMesaj = new Button[10];
@@ -44,11 +44,11 @@ public class FindWordActivity extends AppCompatActivity {
     private Button buttonComplete;
 
     private String checkpointString;
-    private int Clickuri = 0; ///de asta nu-mi pasa ramane
-    private int StartX = 0;   ///de asta nu-mi pasa ramane
-    private int StartY = 0;   ///de asta nu-mi pasa ramane
-    private int FinishX = 0;  ///de asta nu-mi pasa ramane
-    private int FinishY = 0;  ///de asta nu-mi pasa ramane
+    private int Clickuri = 0;
+    private int StartX = 0;
+    private int StartY = 0;
+    private int FinishX = 0;
+    private int FinishY = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,14 +148,29 @@ public class FindWordActivity extends AppCompatActivity {
                 500);
     }
 
-    private Runnable mRunnable = new Runnable() {
-        @Override
-        public void run() {
-            MainActivity.user.setFindWordGames(checkpointString, GameState.getGame());
-            mHandler.postDelayed(this, 3000);
-            Log.d(TAG, "run: saving...");
-        }
-    };
+
+    private void saveState() {
+        MainActivity.user.setFindWordGames(checkpointString, GameState.getGame());
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        saveState();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        saveState();
+        isPaused = true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isPaused = false;
+    }
 
     private void StartGame(boolean pass) {
 
@@ -165,7 +180,7 @@ public class FindWordActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mHandler.removeCallbacks(mRunnable);
+                saveState();
                 if(checkpointString.contains("Center")) {
                     Intent intent = new Intent(FindWordActivity.this, CenterMapActivity.class);
                     startActivity(intent);
@@ -218,10 +233,9 @@ public class FindWordActivity extends AppCompatActivity {
                 difficulty = 2;
             }
             GameState = new FindWordEngine(difficulty);
-            MainActivity.user.setFindWordGames(checkpointString, GameState.getGame());
+            saveState();
         }
 
-        mRunnable.run();
 
         for(int i = 1; i <= 9; ++i) {
             String stringID = "LiteraCuvant" + String.valueOf(i);
@@ -335,7 +349,7 @@ public class FindWordActivity extends AppCompatActivity {
             new android.os.Handler().postDelayed(
                     new Runnable() {
                         public void run() {
-                            if(GameState.getStareJoc() == 0) {
+                            if(GameState.getStareJoc() == 0 && !isPaused) {
                                 int Secunde = GameState.getSecunde();
                                 int Minute = GameState.getMinute();
                                 Secunde--;

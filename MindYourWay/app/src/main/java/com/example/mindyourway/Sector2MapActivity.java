@@ -19,8 +19,8 @@ public class Sector2MapActivity extends RegionMapActivity {
     protected void initGames() {
         super.initGames();
         games.put("Sector2_1","sudoku");
-        games.put("Sector2_2","sudoku");
-        games.put("Sector2_3","sudoku");
+        games.put("Sector2_2","findWord");
+        games.put("Sector2_3","colorlink");
     }
 
     @Override

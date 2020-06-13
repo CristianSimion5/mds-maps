@@ -18,6 +18,8 @@ public class User {
     private Integer level;
     private HashMap<String,Integer> status;
     private boolean admin = true;
+    private boolean adminMap = true;
+    private boolean adminReset = true;
     private HashMap<String,int[][][]> sudokuGames;
     private HashMap<String, FindWordEngine> findWordGames;
     private HashMap<String,int[][]> colorlinkGames;
@@ -69,6 +71,14 @@ public class User {
                 }
             }
         }
+    }
+
+    public boolean isAdminMap() {
+        return adminMap;
+    }
+
+    public boolean isAdminReset() {
+        return adminReset;
     }
 
     public boolean isAdmin() {

@@ -129,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnReset = (Button) findViewById(R.id.btnReset);
+        if(user.isAdminReset()) {
+            btnReset.setVisibility(View.VISIBLE);
+        }
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

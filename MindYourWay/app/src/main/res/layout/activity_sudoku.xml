@@ -4,787 +4,1405 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#929292"
     tools:context=".SudokuActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tableLayout13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:shrinkColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.65"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintWidth_percent="1">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout14"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:shrinkColumns="*"
-                android:background="@drawable/border1">
-                <TableRow>
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku11"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku12"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku13"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku21"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku22"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku23"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku31"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku32"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku33"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku14"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku15"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku16"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku24"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku25"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku26"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku34"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku35"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku36"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku17"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku18"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku19"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku27"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku28"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku29"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku37"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku38"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku39"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-                </TableRow>
-
-                <TableRow>
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku41"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku42"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku43"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku51"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku52"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku53"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku61"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku62"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku63"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku44"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku45"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku46"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku54"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku55"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku56"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku64"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku65"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku66"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku47"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku48"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku49"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku57"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku58"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku59"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku67"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku68"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku69"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-                </TableRow>
-
-                <TableRow>
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku71"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku72"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku73"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku81"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku82"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku83"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku91"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku92"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku93"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku74"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku75"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku76"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku84"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku85"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku86"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku94"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku95"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku96"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-
-                    <TableLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border1"
-                        android:shrinkColumns="*">
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku77"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku78"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku79"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku87"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku88"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku89"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                        <TableRow>
-                            <Button
-                                android:id="@+id/buttonSudoku97"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku98"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                            <Button
-                                android:id="@+id/buttonSudoku99"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1">
-                            </Button>
-                        </TableRow>
-
-                    </TableLayout>
-                </TableRow>
-            </TableLayout>
-
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:shrinkColumns="*">
-
-                <TableRow>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" ">
-                    </TextView>
-                </TableRow>
-
-            </TableLayout>
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:shrinkColumns="*">
-                <TableRow>
-                    <Button
-                        android:id="@+id/buttonEmpty"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="X">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="4">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="5">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="6">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="7">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="8">
-                    </Button>
-                    <Button
-                        android:id="@+id/buttonDigit9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="9">
-                    </Button>
-                </TableRow>
-            </TableLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp">
 
             <Button
-                android:id="@+id/buttonBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back"
-                tools:layout_editor_absoluteX="116dp"
-                tools:layout_editor_absoluteY="257dp" />
+                android:id="@+id/buttonSudoku11"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku21"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku12"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
 
             <Button
-                android:id="@+id/buttonComplete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Complete game"
-                tools:layout_editor_absoluteX="116dp"
-                tools:layout_editor_absoluteY="257dp" />
+                android:id="@+id/buttonSudoku12"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku22"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku13"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku11"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/buttonSudoku13"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku12"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
 
-    </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonSudoku21"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku31"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku22"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku11"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku22"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku32"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku23"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku21"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku12"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku23"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku33"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku22"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku13"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku31"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku32"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku21"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku32"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku33"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku31"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku22"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku33"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku32"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku23"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout15"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku14"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku24"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku15"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku15"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku25"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku16"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku14"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku16"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku15"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku24"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku34"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku25"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku14"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku25"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku35"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku26"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku24"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku15"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku26"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku36"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku25"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku16"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku34"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku35"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku24"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku35"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku36"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku34"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku25"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku36"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku35"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku26"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout16"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku17"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku27"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku18"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku18"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku28"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku19"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku17"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku19"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku29"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku18"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku27"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku37"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku28"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku17"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku28"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku38"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku29"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku27"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku18"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku29"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku39"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku28"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku19"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku37"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku38"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku27"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku38"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku39"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku37"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku28"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku39"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku38"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku29"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout17"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku41"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku51"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku42"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku42"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku52"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku43"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku41"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku43"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku53"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku42"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku51"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku61"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku52"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku41"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku52"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku62"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku53"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku51"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku42"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku53"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku63"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku52"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku43"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku61"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku62"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku51"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku62"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku63"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku61"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku52"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku63"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku62"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku53"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout18"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku44"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku54"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku45"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku45"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku55"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku46"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku44"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku46"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku56"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku45"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku54"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku64"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku55"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku44"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku55"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku65"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku56"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku54"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku45"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku56"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku66"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku55"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku46"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku64"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku65"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku54"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku65"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku66"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku64"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku55"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku66"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku65"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku56"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout19"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku47"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku57"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku48"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku48"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku58"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku49"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku47"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku49"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku59"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku48"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku57"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku67"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku58"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku47"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku58"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku68"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku59"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku57"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku48"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku59"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku69"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku58"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku49"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku67"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku68"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku57"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku68"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku69"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku67"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku58"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku69"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku68"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku59"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout20"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku71"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku81"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku72"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku72"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku82"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku73"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku71"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku73"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku83"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku72"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku81"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku91"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku82"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku71"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku82"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku92"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku83"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku81"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku72"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku83"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku93"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku82"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku73"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku91"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku92"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku81"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku92"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku93"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku91"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku82"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku93"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku92"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku83"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout21"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku74"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku84"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku75"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku75"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku85"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku76"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku74"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku76"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku86"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku75"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku84"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku94"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku85"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku74"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku85"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku95"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku86"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku84"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku75"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku86"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku96"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku85"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku76"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku94"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku95"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku84"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku95"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku96"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku94"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku85"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku96"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku95"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku86"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableLayout22"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/border1"
+            android:shrinkColumns="*"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.33333333333333333333333333333333"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintWidth_percent="0.33333333333333333333333333333333">
+
+
+            <Button
+                android:id="@+id/buttonSudoku77"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku87"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku78"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku78"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku88"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku79"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku77"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku79"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginTop="20dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku89"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku78"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku87"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku97"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku88"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku77"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku88"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku98"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku89"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku87"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku78"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku89"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSudoku99"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku88"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku79"></Button>
+
+
+            <Button
+                android:id="@+id/buttonSudoku97"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku98"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku87"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku98"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSudoku99"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku97"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku88"></Button>
+
+            <Button
+                android:id="@+id/buttonSudoku99"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:text="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonSudoku98"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSudoku89"></Button>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.76"
+        app:layout_constraintWidth_percent="1">
+
+        <Button
+            android:id="@+id/buttonEmpty"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.11111111111111111111111111111111"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.22222222222222222222222222222222"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.33333333333333333333333333333333"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.44444444444444444444444444444444"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.55555555555555555555555555555556"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.66666666666666666666666666666667"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.77777777777777777777777777777778"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.88888888888888888888888888888889"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+
+        <Button
+            android:id="@+id/buttonDigit9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.1"></Button>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        app:layout_constraintWidth_percent="1">
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <Button
+            android:id="@+id/buttonHelp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Help"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonComplete"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonBack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <Button
+            android:id="@+id/buttonComplete"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Complete game"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent="0.3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

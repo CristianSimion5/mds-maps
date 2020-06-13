@@ -14,11 +14,11 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHeight_percent="1"
+        app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"
-        app:layout_constraintWidth_percent="1">
+        app:layout_constraintWidth_percent="0.11">
 
         <TextView
             android:id="@+id/CuvinteGasite"
@@ -30,11 +30,11 @@
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="1"
-            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.4">
+            app:layout_constraintVertical_bias="0.8"
+            app:layout_constraintWidth_percent="1">
 
         </TextView>
 
@@ -48,12 +48,11 @@
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="1"
-            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent="0.2">
+            app:layout_constraintVertical_bias="0.15"
+            app:layout_constraintWidth_percent="1">
 
         </TextView>
 
@@ -66,11 +65,11 @@
         android:background="#565472"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.133"
+        app:layout_constraintHeight_percent="1"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14"
-        app:layout_constraintWidth_percent="1">
+        app:layout_constraintWidth_percent="0.133">
 
         <Button
             android:id="@+id/LiteraCuvant1"
@@ -78,13 +77,13 @@
             android:layout_height="0dp"
             android:text="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -94,13 +93,13 @@
             android:layout_height="0dp"
             android:text="2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.125"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -110,13 +109,13 @@
             android:layout_height="0dp"
             android:text="3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -126,13 +125,13 @@
             android:layout_height="0dp"
             android:text="4"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.375"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.375"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -142,13 +141,13 @@
             android:layout_height="0dp"
             android:text="5"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -158,13 +157,13 @@
             android:layout_height="0dp"
             android:text="6"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.625"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.625"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -174,13 +173,13 @@
             android:layout_height="0dp"
             android:text="7"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.75"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -190,13 +189,13 @@
             android:layout_height="0dp"
             android:text="8"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.875"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -206,13 +205,13 @@
             android:layout_height="0dp"
             android:text="9"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -222,13 +221,13 @@
             android:layout_height="0dp"
             android:text="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -238,13 +237,13 @@
             android:layout_height="0dp"
             android:text="2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.125"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -254,13 +253,13 @@
             android:layout_height="0dp"
             android:text="3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -270,13 +269,13 @@
             android:layout_height="0dp"
             android:text="4"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.375"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.375"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -286,13 +285,13 @@
             android:layout_height="0dp"
             android:text="5"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -302,13 +301,13 @@
             android:layout_height="0dp"
             android:text="6"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.625"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.625"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -318,13 +317,13 @@
             android:layout_height="0dp"
             android:text="7"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.75"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -334,13 +333,13 @@
             android:layout_height="0dp"
             android:text="8"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintVertical_bias="0.875"
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -350,13 +349,13 @@
             android:layout_height="0dp"
             android:text="9"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintHeight_percent="0.11111111111111111111111111111111"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1"
-            app:layout_constraintWidth_percent="0.11111111111111111111111111111111">
+            app:layout_constraintWidth_percent="0.5">
 
         </Button>
 
@@ -369,11 +368,12 @@
         android:background="#565472"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintHeight_percent="1"
+        app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"
-        app:layout_constraintWidth_percent="1">
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_percent="0.6">
 
         <Button
             android:id="@+id/buttonFindWord11"
@@ -1517,11 +1517,11 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHeight_percent="1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97"
-        app:layout_constraintWidth_percent="1">
+        app:layout_constraintWidth_percent="0.13">
 
         <Button
             android:id="@+id/buttonBack"
@@ -1530,12 +1530,12 @@
             android:text="Back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="1"
-            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent="0.2">
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintWidth_percent="1">
 
         </Button>
 
@@ -1546,12 +1546,12 @@
             android:text="Retry"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="1"
+            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent="0.2">
+            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintWidth_percent="1">
 
         </Button>
 
@@ -1562,12 +1562,12 @@
             android:text="Complete Game"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="1"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent="0.3">
+            app:layout_constraintVertical_bias="0.95"
+            app:layout_constraintWidth_percent="1">
 
         </Button>
 
@@ -1577,12 +1577,13 @@
             android:layout_height="0dp"
             android:text="Help"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="1"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.2" />
+            app:layout_constraintVertical_bias="0.65"
+            app:layout_constraintWidth_percent="1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

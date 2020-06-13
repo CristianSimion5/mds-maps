@@ -47,7 +47,6 @@ public class FindWordEngine {
     }
 
 
-    ///de pus FindWordEngine(FindWordEngine X)
     public FindWordEngine(FindWordEngine X) {
         this.MatriceLitere = new char [10][10];
         this.Minute = X.getMinute();
@@ -85,19 +84,19 @@ public class FindWordEngine {
         }
 
         if(getDificultate() == 0) {
-            SetMinute(1);
+            SetMinute(6);
             SetSecunde(0);
             SetStatusX(0);
             SetStatusY(6);
         }
         else if(getDificultate() == 1) {
-            SetMinute(6);
+            SetMinute(5);
             SetSecunde(0);
             SetStatusX(0);
             SetStatusY(7);
         }
         else if(getDificultate() == 2) {
-            SetMinute(5);
+            SetMinute(4);
             SetSecunde(30);
             SetStatusX(0);
             SetStatusY(8);

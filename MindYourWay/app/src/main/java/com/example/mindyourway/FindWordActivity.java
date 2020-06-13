@@ -148,6 +148,35 @@ public class FindWordActivity extends AppCompatActivity {
                 500);
     }
 
+    private void MeineTimer(final FindWordEngine GameState) {
+        new android.os.Handler().postDelayed(
+            new Runnable() {
+                public void run() {
+                    if(GameState.getStareJoc() == 0 && !isPaused) {
+                        int Secunde = GameState.getSecunde();
+                        int Minute = GameState.getMinute();
+                        Secunde--;
+                        if (Secunde < 0) {
+                            Minute--;
+                            Secunde += 60;
+                        }
+                        if (Minute == 0 && Secunde == 0) {
+                            GameState.SetStareJoc(1);
+                        }
+                        if(GameState.getStareJoc() == 1)
+                        {
+                            GameState.SetMesajJoc(" GAME OVER");
+                            AfiseazaMesaj(GameState.getMesajJoc());
+                        }
+                        GameState.SetMinute(Minute);
+                        GameState.SetSecunde(Secunde);
+                        AfiseazaTimp(GameState.getMinute(),GameState.getSecunde());
+                        MeineTimer(GameState);
+                    }
+                }
+            }, 1000);
+    }
+
 
     private void saveState() {
         MainActivity.user.setFindWordGames(checkpointString, GameState.getGame());
@@ -327,7 +356,6 @@ public class FindWordActivity extends AppCompatActivity {
         GameState.generateLitere();
         GameState.adaugaCuvant(String.valueOf(GameState.getCuvantX(GameState.getStatusX())));
         AfiseazaMatrice(GameState.getMatriceLitere());
-        ///MeineTimer();
 
         int ID = FindWordActivity.this.getResources().getIdentifier("Retry", "id", FindWordActivity.this.getPackageName());
         Retry = (Button) findViewById(ID);
@@ -345,32 +373,6 @@ public class FindWordActivity extends AppCompatActivity {
 
 
         AfiseazaTimp(GameState.getMinute(),GameState.getSecunde());
-        for(int i = 1 ; i <= GameState.getMinute()*60+GameState.getSecunde(); ++i) {
-            new android.os.Handler().postDelayed(
-                    new Runnable() {
-                        public void run() {
-                            if(GameState.getStareJoc() == 0 && !isPaused) {
-                                int Secunde = GameState.getSecunde();
-                                int Minute = GameState.getMinute();
-                                Secunde--;
-                                if (Secunde < 0) {
-                                    Minute--;
-                                    Secunde += 60;
-                                }
-                                if (Minute == 0 && Secunde == 0) {
-                                    GameState.SetStareJoc(1);
-                                }
-                                if(GameState.getStareJoc() == 1)
-                                {
-                                    GameState.SetMesajJoc(" GAME OVER");
-                                    AfiseazaMesaj(GameState.getMesajJoc());
-                                }
-                                GameState.SetMinute(Minute);
-                                GameState.SetSecunde(Secunde);
-                                AfiseazaTimp(GameState.getMinute(),GameState.getSecunde());
-                            }
-                        }
-                    }, 1000*i);
-        }
+        MeineTimer(GameState);
     }
 }

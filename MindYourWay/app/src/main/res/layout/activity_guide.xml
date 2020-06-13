@@ -22,8 +22,8 @@
 
     <com.example.mindyourway.TextViewWithImages
         android:id="@+id/textViewGuide"
-        android:layout_width="383dp"
-        android:layout_height="585dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="sans-serif-medium"
         android:lineSpacingExtra="2sp"
         android:shadowColor="@color/black"
@@ -34,18 +34,18 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintWidth_percent="0.95" />
 
     <Button
         android:id="@+id/buttonSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="44dp"
         android:background="@drawable/ic_next"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/backButton"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

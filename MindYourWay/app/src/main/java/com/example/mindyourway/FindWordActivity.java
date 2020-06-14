@@ -210,8 +210,9 @@ public class FindWordActivity extends AppCompatActivity {
         buttonHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveState();
                 Intent intent = new Intent(FindWordActivity.this, GuideActivity.class);
-                intent.putExtra(GuideActivity.guideExtra, "FindWord_"+checkpointString);
+                intent.putExtra(GuideActivity.guideExtra, "FindWord-"+checkpointString);
                 startActivity(intent);
             }
         });

@@ -47,7 +47,7 @@ public class GuideActivity extends AppCompatActivity {
                     intent = new Intent(GuideActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    String[] strings = origin.split("_");
+                    String[] strings = origin.split("-");
                     switch (strings[0]) {
                         case "Sudoku":
                             intent = new Intent(GuideActivity.this, SudokuActivity.class);

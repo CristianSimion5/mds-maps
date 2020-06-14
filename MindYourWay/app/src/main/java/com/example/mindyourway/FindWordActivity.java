@@ -42,6 +42,7 @@ public class FindWordActivity extends AppCompatActivity {
     private Button Retry;
     private Button buttonBack;
     private Button buttonComplete;
+    private Button buttonHelp;
 
     private String checkpointString;
     private int Clickuri = 0;
@@ -204,7 +205,16 @@ public class FindWordActivity extends AppCompatActivity {
     private void StartGame(boolean pass) {
 
         buttonBack = (Button) findViewById(R.id.buttonBack);
-        buttonComplete = (Button) findViewById(R.id.buttonComplete) ;
+        buttonComplete = (Button) findViewById(R.id.buttonComplete);
+        buttonHelp = (Button) findViewById(R.id.buttonHelp);
+        buttonHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FindWordActivity.this, GuideActivity.class);
+                intent.putExtra(GuideActivity.guideExtra, "FindWord_"+checkpointString);
+                startActivity(intent);
+            }
+        });
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override

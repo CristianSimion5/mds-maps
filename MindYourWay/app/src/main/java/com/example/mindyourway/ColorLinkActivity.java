@@ -37,6 +37,7 @@ public class ColorLinkActivity extends AppCompatActivity {
     private Button buttonReset;
     private Button buttonComplete;
     private Button buttonBack;
+    private Button buttonHelp;
     private ImageView[][][] layers;
 
     int[][] dir = new int[][] {{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
@@ -97,6 +98,15 @@ public class ColorLinkActivity extends AppCompatActivity {
                 MainActivity.user.setColorLinkGame(checkpointString, game.getCurrentState());
                 colorLinkTable.removeAllViews();
                 initInterface();
+            }
+        });
+        buttonHelp = (Button) findViewById(R.id.buttonHelp);
+        buttonHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ColorLinkActivity.this, GuideActivity.class);
+                intent.putExtra(GuideActivity.guideExtra, "ColorLink_"+checkpointString);
+                startActivity(intent);
             }
         });
 

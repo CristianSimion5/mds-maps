@@ -1,5 +1,7 @@
 package com.example.mindyourway;
 
+import android.util.Log;
+
 public class ColorLink {
 
     //code for numberlink generator at https://github.com/abhishekpant93/numberlink-generator

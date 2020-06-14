@@ -32,6 +32,7 @@ public class SudokuActivity extends AppCompatActivity {
     private Button[] buttonsDigit = new Button[9];
     private Button buttonEmpty;
     private Button buttonBack;
+    private Button buttonHelp;
 
     private int xCurrent = 1;
     private int yCurrent = 1;
@@ -50,6 +51,15 @@ public class SudokuActivity extends AppCompatActivity {
         buttonComplete = (Button) findViewById(R.id.buttonComplete);
         buttonEmpty = (Button) findViewById(R.id.buttonEmpty);
         buttonBack = (Button) findViewById(R.id.buttonBack);
+        buttonHelp = (Button) findViewById(R.id.buttonHelp);
+        buttonHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SudokuActivity.this, GuideActivity.class);
+                intent.putExtra(GuideActivity.guideExtra, "Sudoku_"+checkpointString);
+                startActivity(intent);
+            }
+        });
         if(MainActivity.user.checkSudokuGame(checkpointString)){
             sudoku = new Sudoku(MainActivity.user.getSudokuGame(checkpointString));
             Log.d(TAG, "init: was created");
@@ -140,10 +150,12 @@ public class SudokuActivity extends AppCompatActivity {
         buttonEmpty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonsSudoku[xCurrent][yCurrent].setText("");
-                table[xCurrent][yCurrent]=0;
-                sudoku.setElement(xCurrent, yCurrent,0);
-                MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
+                if (sudoku.isChangeable(xCurrent,yCurrent)) {
+                    buttonsSudoku[xCurrent][yCurrent].setText("");
+                    table[xCurrent][yCurrent] = 0;
+                    sudoku.setElement(xCurrent, yCurrent, 0);
+                    MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
+                }
             }
         });
 

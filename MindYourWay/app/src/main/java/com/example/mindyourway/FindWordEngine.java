@@ -46,6 +46,22 @@ public class FindWordEngine {
         }
     }
 
+    public FindWordEngine(char[][] MatriceLitereNoua) {
+        Minute = 0;
+        Secunde = 0;
+        StatusX = 0;
+        StatusY = 0;
+        ListaCuvinteJoc = new ArrayList<String>();
+        MesajJoc = " FIND WORD";
+        MatriceLitere = new char[10][10];
+        dificultate = 0;
+        StareJoc = 0;
+        for(int i = 1; i <= 9 ;++i) {
+            for (int j = 1; j <= 9; ++j) {
+                MatriceLitere[i][j] = MatriceLitereNoua[i][j];
+            }
+        }
+    }
 
     public FindWordEngine(FindWordEngine X) {
         this.MatriceLitere = new char [10][10];
@@ -77,8 +93,8 @@ public class FindWordEngine {
         MesajJoc = " FIND WORD";
         StareJoc = 0;
         MatriceLitere = new char[10][10];
-        for(int i = 0; i <= 9 ;++i) {
-            for (int j = 0; j <= 9; ++j) {
+        for(int i = 1; i <= 9 ;++i) {
+            for (int j = 1; j <= 9; ++j) {
                 MatriceLitere[i][j] = 0;
             }
         }

@@ -15,6 +15,7 @@ public class Sudoku {
     private int u = 1;
     private int numbersMissing=0;
 
+    //constructori
     public Sudoku(int[][][] Table) {
         table = new int[9][9];
         table2 = new int[9][9];
@@ -45,20 +46,9 @@ public class Sudoku {
         copy(table1,table);
     }
 
-    private void copy(int[][] table1, int[][] table2){
-        for(int i = 0; i < 9; i++){
-            for(int j = 0; j < 9; j++){
-                table1[i][j] = table2[i][j];
-            }
-        }
-    }
-
-
-    public boolean isChangeable(int x, int y) {
-
-        if (table1[x][y] == 0)
-            return true;
-        return false;
+    //getters
+    public int getElement(int i, int j) {
+        return table[i][j];
     }
 
     public int[][] getTable() {
@@ -98,12 +88,31 @@ public class Sudoku {
         return Table;
     }
 
-    public int getElement(int i, int j) {
-        return table[i][j];
-    }
-
+    //setter
     public void setElement(int i, int j, int x) {
         this.table[i][j] = x;
+    }
+
+    //functii pentru verificare
+    public boolean isChangeable(int x, int y) {
+
+        if (table1[x][y] == 0)
+            return true;
+        return false;
+    }
+
+    public boolean checkIfSolved(){
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (table[i][j]!=table2[i][j])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkElement(int i, int j, int x){
+        return checkElement1(i,j,x,this.table);
     }
 
     private boolean checkElement1(int i, int j, int x, int[][] table){
@@ -124,25 +133,36 @@ public class Sudoku {
 
         return true;
     }
-    public boolean checkElement(int i, int j, int x){
-        return checkElement1(i,j,x,this.table);
+
+    //functie de copiere
+    private void copy(int[][] table1, int[][] table2){
+        for(int i = 0; i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                table1[i][j] = table2[i][j];
+            }
+        }
     }
 
+    //elimina elemente din tabelul plin in functie de dificultate
+    private void removeElements(int k){
+        while(k!=0) {
+            int i = Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
+            int j =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
+            while (table[i][j] == 0) {
+                i =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
+                j =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
+            }
+            table[i][j] = 0;
+            k--;
+        }
+    }
+
+    //foloseste backtracking pentru a umple corect un tabel
     private void solve(){
         copy(table2,table);
         copy(table1,table);
         u=1;
         bkt(0,0);
-    }
-
-    public boolean checkIfSolved(){
-        for(int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (table[i][j]!=table2[i][j])
-                    return false;
-            }
-        }
-        return true;
     }
 
     private void bkt(int x, int y){
@@ -181,64 +201,4 @@ public class Sudoku {
         }
     }
 
-    private void removeElements(int k){
-        while(k!=0) {
-            int i = Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
-            int j =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
-            while (table[i][j] == 0) {
-                i =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
-                j =  Math.abs(ThreadLocalRandom.current().nextInt()) % 9;
-            }
-            table[i][j] = 0;
-            k--;
-        }
-    }
-
-
-    private boolean checkIfSolvable(){
-        copy(table2,table);
-        copy(table1,table);
-        u=2;
-        bkt1(0,0);
-        if(u==1){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void bkt1(int x, int y){
-        if(x==9){
-            if (this.u==2)
-                this.u=1;
-            else if(this.u==1){
-                this.u=0;
-            }
-        }
-        else
-        if(this.u!=1)
-        {
-            int i,j;
-            if(y==8){
-                j=0;
-                i=x+1;
-            } else {
-                i=x;
-                j=y+1;
-            }
-            if(this.table1[x][y]==0){
-                for(int k=1;k<=9;k++){
-                    if(checkElement1(x,y,k,this.table2)){
-                        this.table2[x][y]=k;
-                        bkt(i,j);
-                        this.table2[x][y]=0;
-                    }
-                    else{
-                        //cout<<x<<" "<<y<<" "<<k<<"\n";
-                    }
-                }
-            }
-            else bkt(i,j);
-        }
-    }
 }

@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, GuideActivity.class);
+                intent.putExtra(GuideActivity.guideExtra, "Main");
                 startActivity(intent);
             }
         });

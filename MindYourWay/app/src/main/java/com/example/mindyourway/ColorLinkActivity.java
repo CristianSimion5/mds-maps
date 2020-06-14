@@ -104,8 +104,9 @@ public class ColorLinkActivity extends AppCompatActivity {
         buttonHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.user.setColorLinkGame(checkpointString, game.getCurrentState());
                 Intent intent = new Intent(ColorLinkActivity.this, GuideActivity.class);
-                intent.putExtra(GuideActivity.guideExtra, "ColorLink_"+checkpointString);
+                intent.putExtra(GuideActivity.guideExtra, "ColorLink-"+checkpointString);
                 startActivity(intent);
             }
         });

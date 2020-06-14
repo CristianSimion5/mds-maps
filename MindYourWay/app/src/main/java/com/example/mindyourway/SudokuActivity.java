@@ -55,8 +55,9 @@ public class SudokuActivity extends AppCompatActivity {
         buttonHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.user.setSudokuGame(checkpointString, sudoku.getCurrentState());
                 Intent intent = new Intent(SudokuActivity.this, GuideActivity.class);
-                intent.putExtra(GuideActivity.guideExtra, "Sudoku_"+checkpointString);
+                intent.putExtra(GuideActivity.guideExtra, "Sudoku-"+checkpointString);
                 startActivity(intent);
             }
         });

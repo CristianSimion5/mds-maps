@@ -302,6 +302,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    // Se foloseste pentru a cauta o destinatie introduse in bara de cautare
     private void geoLocate() {
         Log.d(TAG, "geoLOcate: Geolocating");
         String searchString = mSearchText.getText().toString();

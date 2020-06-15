@@ -17,3 +17,7 @@ Minijocurile implementate sunt:
 * Sudoku - joc în care trebuie plasate cifre astfel încât pe fiecare linie, coloană și pătrat 3x3 marcat să se afle o singură dată fiecare cifră.
 * Color Link - joc în care trebuie conectate toate perechile de pătrate de aceeași culoare fără intersecții între legături colorate diferit.
 * Find Words - joc în care trebuie găsite cuvinte într-un careu de litere.
+
+## UML
+Schema UML a modelului:
+![UML-ul Proiectului](mind-your-way-uml.png)

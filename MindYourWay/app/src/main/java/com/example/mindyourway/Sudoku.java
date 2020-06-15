@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Sudoku {
-    private int[][] table;
-    private int[][] table2;
-    private int[][] table1;
+    private int[][] table;                  // salveaza starea curenta
+    private int[][] table2;                 // salveaza solutia
+    private int[][] table1;                 // salveaza starea initiala
     private int u = 1;
     private int numbersMissing=0;
 
